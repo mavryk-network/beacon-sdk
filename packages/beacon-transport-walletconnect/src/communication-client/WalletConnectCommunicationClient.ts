@@ -5,7 +5,7 @@ import {
   ClientEvents,
   Logger,
   WCStorage
-} from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-core'
 import Client from '@walletconnect/sign-client'
 import { ProposalTypes, SessionTypes, SignClientTypes } from '@walletconnect/types'
 import { getSdkError } from '@walletconnect/utils'
@@ -44,8 +44,8 @@ import {
   SignPayloadResponseInput,
   StorageKey,
   TransportType
-} from '@airgap/beacon-types'
-import { generateGUID, getAddressFromPublicKey } from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-types'
+import { generateGUID, getAddressFromPublicKey } from '@mavrykdynamics/beacon-utils'
 
 const TEZOS_PLACEHOLDER = 'tezos'
 const logger = new Logger('WalletConnectCommunicationClient')

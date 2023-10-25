@@ -10,8 +10,8 @@ import {
   WalletConnectPairingRequest,
   NetworkType,
   AccountInfo
-} from '@airgap/beacon-types'
-import { Transport, PeerManager } from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-types'
+import { Transport, PeerManager } from '@mavrykdynamics/beacon-core'
 import { SignClientTypes } from '@walletconnect/types'
 
 /**
