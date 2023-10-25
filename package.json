@@ -21,7 +21,7 @@
   "homepage": "https://www.airgap.it",
   "repository": {
     "type": "git",
-    "url": "https://github.com/airgap-it/beacon-sdk"
+    "url": "https://github.com/mavryk-network/beacon-sdk"
   },
   "engines": {
     "npm": ">=7.0.0",
@@ -50,8 +50,8 @@
     "sonar-scanner": "sonar-scanner",
     "prepare": "npm run build",
     "check-version": "ts-node --project tsconfig-cjs.json scripts/check-sdk-version.ts",
-    "typedoc": "typedoc",
-    "publish": "lerna run tsc && lerna publish",
+    "typedoc": "typedoc src/index.ts --includeVersion --internal-aliases publicapi --external-aliases internalapi --logLevel Verbose --listInvalidSymbolLinks && ts-node --project tsconfig-cjs.json scripts/process-docs.ts",
+    "publish": "lerna publish --force-publish",
     "bump:version": "lerna version --no-git-tag-version --exact",
     "bump:major": "lerna version --no-git-tag-version major --exact --yes",
     "bump:minor": "lerna version --no-git-tag-version minor --exact --yes",

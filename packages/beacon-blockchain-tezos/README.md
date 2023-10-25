@@ -1,6 +1,6 @@
 # `@mavrykdynamics/beacon-blockchain-tezos`
 
-This package is part of the `@mavrykdynamics/beacon-sdk` project. [Read more](https://github.com/airgap-it/beacon-sdk)
+This package is part of the `@mavrykdynamics/beacon-sdk` project. [Read more](https://github.com/mavryk-network/beacon-sdk)
 
 ## Introduction
 

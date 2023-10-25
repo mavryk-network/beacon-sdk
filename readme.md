@@ -86,7 +86,7 @@ For a more complete example, take a look at the `example-wallet.html` file.
 
 ## Adding a wallet to beacon-sdk
 
-Please create a PR and add your wallet [here](https://github.com/airgap-it/beacon-sdk/blob/master/scripts/generate-wallet-list.ts).
+Please create a PR and add your wallet [here](https://github.com/mavryk-network/beacon-sdk/blob/master/scripts/generate-wallet-list.ts).
 
 For iOS wallets, the wallet needs to define a custom url scheme to support the same-device functionality.
 
