@@ -64,7 +64,7 @@ import {
   // EncryptPayloadResponseOutput,
   // EncryptPayloadResponse,
   // EncryptPayloadRequest
-} from '@airgap/beacon-types'
+} from '@mavrykdynamics/beacon-types'
 import {
   Client,
   Transport,
@@ -75,18 +75,18 @@ import {
   getAccountIdentifier,
   getSenderId,
   Logger
-} from '@airgap/beacon-core'
-import { getAddressFromPublicKey, ExposedPromise, generateGUID, toHex } from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-core'
+import { getAddressFromPublicKey, ExposedPromise, generateGUID, toHex } from '@mavrykdynamics/beacon-utils'
 import { messageEvents } from '../beacon-message-events'
 import { BlockExplorer } from '../utils/block-explorer'
 import { TzktBlockExplorer } from '../utils/tzkt-blockexplorer'
 
 import { DAppClientOptions } from './DAppClientOptions'
-import { AlertButton, closeToast } from '@airgap/beacon-ui'
-import { BeaconEventHandler } from '@airgap/beacon-dapp'
+import { AlertButton, closeToast } from '@mavrykdynamics/beacon-ui'
+import { BeaconEventHandler } from '@mavrykdynamics/beacon-dapp'
 import { DappPostMessageTransport } from '../transports/DappPostMessageTransport'
 import { DappP2PTransport } from '../transports/DappP2PTransport'
-import { PostMessageTransport } from '@airgap/beacon-transport-postmessage'
+import { PostMessageTransport } from '@mavrykdynamics/beacon-transport-postmessage'
 import {
   getColorMode,
   setColorMode,
@@ -98,8 +98,8 @@ import {
   getExtensionList,
   getWebList,
   getiOSList
-} from '@airgap/beacon-ui'
-import { signMessage } from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-ui'
+import { signMessage } from '@mavrykdynamics/beacon-utils'
 
 const logger = new Logger('DAppClient')
 

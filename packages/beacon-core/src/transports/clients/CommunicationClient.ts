@@ -3,8 +3,8 @@ import {
   ExtendedP2PPairingResponse,
   PostMessagePairingRequest,
   ExtendedPostMessagePairingResponse
-} from '@airgap/beacon-types'
-import { toHex, getHexHash, sealCryptobox } from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-types'
+import { toHex, getHexHash, sealCryptobox } from '@mavrykdynamics/beacon-utils'
 import { convertPublicKeyToX25519, convertSecretKeyToX25519, KeyPair } from '@stablelib/ed25519'
 import { clientSessionKeys, serverSessionKeys, SessionKeys } from '@stablelib/x25519-session'
 /**

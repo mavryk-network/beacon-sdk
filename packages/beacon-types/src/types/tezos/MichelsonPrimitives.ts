@@ -81,7 +81,7 @@ export type MichelsonPrimitives =
   | 'UPDATE'
   | 'DUP'
   | 'SOURCE'
-  | 'mutez'
+  | 'mumav'
   | 'SENDER'
   | 'IF_CONS'
   | 'RIGHT'

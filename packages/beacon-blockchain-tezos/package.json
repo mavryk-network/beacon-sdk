@@ -1,5 +1,5 @@
 {
-  "name": "@airgap/beacon-blockchain-tezos",
+  "name": "@mavrykdynamics/beacon-blockchain-tezos",
   "version": "3.3.2",
   "description": "> TODO: description",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
@@ -34,7 +34,7 @@
     "url": "https://github.com/airgap-it/beacon-sdk/issues"
   },
   "dependencies": {
-    "@airgap/beacon-types": "^3.3.2",
-    "@airgap/beacon-ui": "^3.3.2"
+    "@mavrykdynamics/beacon-types": "^3.3.2",
+    "@mavrykdynamics/beacon-ui": "^3.3.2"
   }
 }

@@ -1,6 +1,6 @@
 import { BeaconEvent, BeaconEventType, BeaconEventHandlerFunction } from '../events'
 import { BlockExplorer } from '../utils/block-explorer'
-import { Storage, NetworkType, ColorMode, NodeDistributions } from '@airgap/beacon-types'
+import { Storage, NetworkType, ColorMode, NodeDistributions } from '@mavrykdynamics/beacon-types'
 
 /**
  * @category DApp

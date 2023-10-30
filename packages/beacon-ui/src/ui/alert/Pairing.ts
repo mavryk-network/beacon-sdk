@@ -1,17 +1,17 @@
-import { Serializer } from '@airgap/beacon-core'
+import { Serializer } from '@mavrykdynamics/beacon-core'
 import {
   ExtensionMessage,
   ExtensionMessageTarget,
   NetworkType,
   P2PPairingRequest,
   PostMessagePairingRequest
-} from '@airgap/beacon-types'
-import { windowRef } from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-types'
+import { windowRef } from '@mavrykdynamics/beacon-core'
 import { getTzip10Link } from '../../utils/get-tzip10-link'
 import { isAndroid, isIOS } from '../../utils/platform'
-import { PostMessageTransport } from '@airgap/beacon-transport-postmessage'
+import { PostMessageTransport } from '@mavrykdynamics/beacon-transport-postmessage'
 import { desktopList, extensionList, iOSList, webList } from './wallet-lists'
-import { DesktopApp, App, ExtensionApp, WebApp } from '@airgap/beacon-types'
+import { DesktopApp, App, ExtensionApp, WebApp } from '@mavrykdynamics/beacon-types'
 
 /**
  * Initialize with tezos wallets for backwards compatibility

@@ -1,4 +1,4 @@
-import { Storage } from '@airgap/beacon-types'
+import { Storage } from '@mavrykdynamics/beacon-types'
 
 /**
  * @internalapi

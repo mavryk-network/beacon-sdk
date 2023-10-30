@@ -1,5 +1,5 @@
 {
-  "name": "@airgap/beacon-sdk",
+  "name": "@mavrykdynamics/beacon-sdk",
   "version": "3.3.2",
   "description": "> TODO: description",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
@@ -35,15 +35,15 @@
     "url": "https://github.com/airgap-it/beacon-sdk/issues"
   },
   "dependencies": {
-    "@airgap/beacon-blockchain-substrate": "^3.3.2",
-    "@airgap/beacon-blockchain-tezos": "^3.3.2",
-    "@airgap/beacon-core": "^3.3.2",
-    "@airgap/beacon-dapp": "^3.3.2",
-    "@airgap/beacon-transport-matrix": "^3.3.2",
-    "@airgap/beacon-transport-postmessage": "^3.3.2",
-    "@airgap/beacon-types": "^3.3.2",
-    "@airgap/beacon-ui": "^3.3.2",
-    "@airgap/beacon-utils": "^3.3.2",
-    "@airgap/beacon-wallet": "^3.3.2"
+    "@mavrykdynamics/beacon-blockchain-substrate": "^3.3.2",
+    "@mavrykdynamics/beacon-blockchain-tezos": "^3.3.2",
+    "@mavrykdynamics/beacon-core": "^3.3.2",
+    "@mavrykdynamics/beacon-dapp": "^3.3.2",
+    "@mavrykdynamics/beacon-transport-matrix": "^3.3.2",
+    "@mavrykdynamics/beacon-transport-postmessage": "^3.3.2",
+    "@mavrykdynamics/beacon-types": "^3.3.2",
+    "@mavrykdynamics/beacon-ui": "^3.3.2",
+    "@mavrykdynamics/beacon-utils": "^3.3.2",
+    "@mavrykdynamics/beacon-wallet": "^3.3.2"
   }
 }

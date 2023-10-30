@@ -1,5 +1,5 @@
-import { generateGUID } from '@airgap/beacon-utils'
-import { WalletInfo } from '@airgap/beacon-types'
+import { generateGUID } from '@mavrykdynamics/beacon-utils'
+import { WalletInfo } from '@mavrykdynamics/beacon-types'
 import { toastTemplates } from './toast-templates'
 import { getColorMode } from '../../utils/colorMode'
 import { createIconSVGExternal, createSanitizedElement } from '../../utils/html-elements'
