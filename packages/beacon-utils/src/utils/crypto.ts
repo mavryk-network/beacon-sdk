@@ -184,7 +184,7 @@ export async function getAddressFromPublicKey(publicKey: string): Promise<string
       if (publicKey.startsWith(key) && publicKey.length === value.length) {
         prefix = value.prefix
         const decoded = bs58check.decode(publicKey)
-        plainPublicKey = decoded.slice(key.length, decoded.length).toString('hex')
+        plainPublicKey = Buffer.from(decoded.slice(key.length, decoded.length)).toString('hex')
         break
       }
     }
