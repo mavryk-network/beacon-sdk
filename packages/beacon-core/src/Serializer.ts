@@ -27,6 +27,6 @@ export class Serializer {
       throw new Error('Encoded payload needs to be a string')
     }
 
-    return JSON.parse(Buffer.from(bs58check.decode(encoded)).toString())
+    return JSON.parse(bs58check.decode(encoded).toString())
   }
 }
