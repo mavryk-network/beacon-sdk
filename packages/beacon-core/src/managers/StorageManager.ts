@@ -24,7 +24,6 @@ export class StorageManager<
     | StorageKey.TRANSPORT_P2P_PEERS_WALLET
     | StorageKey.TRANSPORT_POSTMESSAGE_PEERS_DAPP
     | StorageKey.TRANSPORT_POSTMESSAGE_PEERS_WALLET
-    | StorageKey.TRANSPORT_WALLETCONNECT_PEERS_DAPP
 > {
   private readonly storage: Storage
   private readonly storageKey: T
@@ -35,7 +34,7 @@ export class StorageManager<
   }
 
   public async getAll(): Promise<StorageKeyReturnType[T]> {
-    return await this.storage.get(this.storageKey) ?? []
+    return this.storage.get(this.storageKey)
   }
 
   public async getOne(

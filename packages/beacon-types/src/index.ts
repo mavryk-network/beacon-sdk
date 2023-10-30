@@ -60,8 +60,7 @@ import {
   BroadcastResponseInput,
   BeaconResponseInputMessage,
   AcknowledgeResponseInput,
-  ErrorResponseInput,
-  IgnoredResponseInputProperties
+  ErrorResponseInput
 } from './types/beacon/messages/BeaconResponseInputMessage'
 import {
   PermissionResponseOutput,
@@ -108,14 +107,6 @@ import {
   PostMessagePairingRequest
 } from './types/PostMessagePairingRequest'
 import {
-  ExtendedWalletConnectPairingResponse,
-  WalletConnectPairingResponse
-} from './types/WalletConnectPairingResponse'
-import {
-  ExtendedWalletConnectPairingRequest,
-  WalletConnectPairingRequest
-} from './types/WalletConnectPairingRequest'
-import {
   ExtendedPostMessagePairingResponse,
   PostMessagePairingResponse
 } from './types/PostMessagePairingResponse'
@@ -126,9 +117,6 @@ import { Optional } from './types/utils/Optional'
 import { Extension } from './types/Extension'
 import { PermissionEntity } from './types/PermissionEntity'
 import { WalletInfo } from './types/WalletInfo'
-import { ChangeAccountRequest } from './types/beacon/messages/ChangeAccountRequest'
-
-export * from './types/AnalyticsInterface'
 
 export * from './types/beaconV3/PermissionRequest'
 
@@ -183,7 +171,6 @@ export {
   // EncryptPayloadResponse,
   BroadcastRequest,
   BroadcastResponse,
-  ChangeAccountRequest,
   AcknowledgeResponse,
   DisconnectMessage,
   BeaconBaseMessage,
@@ -260,14 +247,10 @@ export {
   P2PPairingRequest,
   P2PPairingResponse,
   ExtendedP2PPairingRequest,
-  ExtendedP2PPairingResponse,
-  WalletConnectPairingResponse,
-  WalletConnectPairingRequest,
-  ExtendedWalletConnectPairingRequest,
-  ExtendedWalletConnectPairingResponse
+  ExtendedP2PPairingResponse
 }
 
-export { IgnoredResponseInputProperties, IgnoredRequestInputProperties, defaultValues }
+export { IgnoredRequestInputProperties, defaultValues }
 
 // Others
 export { ConnectionContext, ColorMode, WalletInfo }

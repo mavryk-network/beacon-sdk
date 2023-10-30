@@ -110,12 +110,7 @@
       // Initiate DAppClient
       const client = new beacon.DAppClient({
         name: 'Example DApp', // Name of the DApp,
-        disclaimerText: 'This is an optional <b>disclaimer</b>.',
-        appUrl: 'http://localhost:8080',
-        walletConnectOptions: {
-          projectId: '97f804b46f0db632c52af0556586a5f3',
-          relayUrl: 'wss://relay.walletconnect.com'
-        }
+        disclaimerText: 'This is an optional <b>disclaimer</b>.'
         // preferredNetwork: beacon.NetworkType.DELPHINET
         // matrixNodes: ['test.papers.tech', 'test2.papers.tech', 'matrix.papers.tech']
         // matrixNodes: ['beacon-node-0.papers.tech:8448']
@@ -255,7 +250,7 @@
       // Add event listener to the button
       document.getElementById('signPayloadRaw').addEventListener('click', async () => {
         const signature = await client.requestSignPayload({
-          payload: '05444e1f4ab90c304a5ac003d367747aab63815f583ff2330ce159d12c1ecceba1'
+          payload: 'test'
         })
 
         console.log('signature:', signature)
@@ -296,8 +291,7 @@
       document.getElementById('signPayloadMicheline').addEventListener('click', async () => {
         const signature = await client.requestSignPayload({
           signingType: beacon.SigningType.MICHELINE,
-          payload:
-            '05010000004254657a6f73205369676e6564204d6573736167653a206d79646170702e636f6d20323032312d30312d31345431353a31363a30345a2048656c6c6f20776f726c6421'
+          payload: '05test'
         })
 
         console.log('signature:', signature)

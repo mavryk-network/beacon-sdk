@@ -1,4 +1,3 @@
-import {} from 'mocha'
 import { MockLocalStorage } from '../../../../test/test-utils/MockLocalStorage'
 ;(global as any).localStorage = new MockLocalStorage()
 

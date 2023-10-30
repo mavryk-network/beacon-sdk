@@ -4,8 +4,7 @@ import {
   AccountIdentifier,
   P2PPairingRequest,
   AppMetadata,
-  PermissionInfo,
-  ExtendedWalletConnectPairingResponse
+  PermissionInfo
 } from '../..'
 // TODO: MOVE TYPE import { MatrixState } from '../../matrix-client/MatrixClientStore'
 import { ExtendedP2PPairingResponse } from '../P2PPairingResponse'
@@ -21,8 +20,6 @@ export interface StorageKeyReturnType {
   [StorageKey.TRANSPORT_P2P_PEERS_WALLET]: ExtendedP2PPairingResponse[]
   [StorageKey.TRANSPORT_POSTMESSAGE_PEERS_DAPP]: PostMessagePairingRequest[]
   [StorageKey.TRANSPORT_POSTMESSAGE_PEERS_WALLET]: ExtendedPostMessagePairingResponse[]
-  [StorageKey.TRANSPORT_WALLETCONNECT_PEERS_DAPP]: ExtendedWalletConnectPairingResponse[]
-  [StorageKey.LAST_SELECTED_WALLET]: string | undefined
   [StorageKey.ACCOUNTS]: AccountInfo[]
   [StorageKey.ACTIVE_ACCOUNT]: AccountIdentifier | undefined
   [StorageKey.PUSH_TOKENS]: PushToken[]

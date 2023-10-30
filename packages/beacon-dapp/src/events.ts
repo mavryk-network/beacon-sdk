@@ -24,10 +24,7 @@ import {
   ConnectionContext,
   NetworkType,
   AcknowledgeResponse,
-  WalletInfo,
-  ExtendedWalletConnectPairingResponse,
-  WalletConnectPairingRequest,
-  AnalyticsInterface
+  WalletInfo
 } from '@airgap/beacon-types'
 import {
   UnknownBeaconError,
@@ -169,17 +166,11 @@ export interface BeaconEventType {
   [BeaconEvent.PAIR_INIT]: {
     p2pPeerInfo: () => Promise<P2PPairingRequest>
     postmessagePeerInfo: () => Promise<PostMessagePairingRequest>
-    walletConnectPeerInfo: () => Promise<WalletConnectPairingRequest>
-    networkType: NetworkType
+    preferredNetwork: NetworkType
     abortedHandler?(): void
     disclaimerText?: string
-    analytics: AnalyticsInterface
-    featuredWallets?: string[]
   }
-  [BeaconEvent.PAIR_SUCCESS]:
-    | ExtendedPostMessagePairingResponse
-    | ExtendedP2PPairingResponse
-    | ExtendedWalletConnectPairingResponse
+  [BeaconEvent.PAIR_SUCCESS]: ExtendedPostMessagePairingResponse | ExtendedP2PPairingResponse
   [BeaconEvent.CHANNEL_CLOSED]: string
   [BeaconEvent.INTERNAL_ERROR]: { text: string; buttons?: AlertButton[] }
   [BeaconEvent.UNKNOWN]: undefined
@@ -200,7 +191,6 @@ const showSentToast = async (data: RequestSentInfo): Promise<void> => {
       const link = data.walletInfo.deeplink
       openWalletAction = async (): Promise<void> => {
         const a = document.createElement('a')
-        a.setAttribute('rel', 'noopener')
         a.setAttribute('href', link)
         a.setAttribute('target', '_blank')
         a.dispatchEvent(new MouseEvent('click', { view: window, bubbles: true, cancelable: true }))
@@ -267,13 +257,13 @@ const showPrepare = async (data: { walletInfo?: WalletInfo }): Promise<void> => 
 const hideUI = async (elements?: ('alert' | 'toast')[]): Promise<void> => {
   if (elements) {
     if (elements.includes('alert')) {
-      await closeAlerts()
+      closeAlerts()
     }
     if (elements.includes('toast')) {
-      await closeToast()
+      closeToast()
     }
   } else {
-    await closeToast()
+    closeToast()
   }
 }
 
@@ -418,21 +408,17 @@ const showInternalErrorAlert = async (
  * @param data The data that is emitted by the PAIR_INIT event
  */
 const showPairAlert = async (data: BeaconEventType[BeaconEvent.PAIR_INIT]): Promise<void> => {
-  console.log('showPairAlert')
   const alertConfig: AlertConfig = {
     title: 'Choose your preferred wallet',
     body: `<p></p>`,
     pairingPayload: {
       p2pSyncCode: data.p2pPeerInfo,
-      walletConnectSyncCode: data.walletConnectPeerInfo,
       postmessageSyncCode: data.postmessagePeerInfo,
-      networkType: data.networkType
+      preferredNetwork: data.preferredNetwork
     },
     // eslint-disable-next-line @typescript-eslint/unbound-method
     closeButtonCallback: data.abortedHandler,
-    disclaimerText: data.disclaimerText,
-    analytics: data.analytics,
-    featuredWallets: data.featuredWallets
+    disclaimerText: data.disclaimerText
   }
   await openAlert(alertConfig)
 }
@@ -496,7 +482,7 @@ const showOperationSuccessAlert = async (
             output.transactionHash,
             account.network
           )
-          window.open(link, '_blank', 'noopener')
+          window.open(link, '_blank')
           await closeToast()
         }
       }
@@ -601,7 +587,7 @@ const showBroadcastSuccessAlert = async (
             output.transactionHash,
             network
           )
-          window.open(link, '_blank', 'noopener')
+          window.open(link, '_blank')
           await closeToast()
         }
       }

@@ -161,10 +161,6 @@ export class P2PCommunicationClient extends CommunicationClient {
     keys.forEach((key) => {
       const nodes = this.ENABLED_RELAY_SERVERS[key] ?? []
 
-      if (nodes.length === 0) {
-        return
-      }
-
       const index = Math.floor(Math.random() * nodes.length)
       allPromises.push(
         this.getBeaconInfo(nodes[index])
@@ -342,7 +338,7 @@ export class P2PCommunicationClient extends CommunicationClient {
 
     const loginRawDigest = hash(encode(loginString), 32)
 
-    const secretKey = this.keyPair!.secretKey ?? (this.keyPair as any).privateKey
+    const secretKey = this.keyPair.secretKey ?? (this.keyPair as any).privateKey
 
     const rawSignature = sign(secretKey, loginRawDigest)
 
@@ -350,7 +346,7 @@ export class P2PCommunicationClient extends CommunicationClient {
       await client.start({
         id: await this.getPublicKeyHash(),
         password: `ed:${toHex(rawSignature)}:${await this.getPublicKey()}`,
-        deviceId: toHex(this.keyPair!.publicKey)
+        deviceId: toHex(this.keyPair.publicKey)
       })
     } catch (error) {
       logger.error('start', 'Could not log in, retrying')
@@ -410,7 +406,7 @@ export class P2PCommunicationClient extends CommunicationClient {
       `start listening for encrypted messages from publicKey ${senderPublicKey}`
     )
 
-    const sharedKey = await this.createCryptoBoxServer(senderPublicKey, this.keyPair!)
+    const sharedKey = await this.createCryptoBoxServer(senderPublicKey, this.keyPair)
 
     const callbackFunction = async (
       event: MatrixClientEvent<MatrixClientEventType.MESSAGE>
@@ -498,7 +494,7 @@ export class P2PCommunicationClient extends CommunicationClient {
     message: string,
     peer: P2PPairingRequest | ExtendedP2PPairingResponse
   ): Promise<void> {
-    const sharedKey = await this.createCryptoBoxClient(peer.publicKey, this.keyPair!)
+    const sharedKey = await this.createCryptoBoxClient(peer.publicKey, this.keyPair)
 
     const recipientHash: string = await getHexHash(Buffer.from(peer.publicKey, 'hex'))
     const recipient = recipientString(recipientHash, peer.relayServer)
@@ -602,7 +598,7 @@ export class P2PCommunicationClient extends CommunicationClient {
         if (payload.length >= secretbox_NONCEBYTES + secretbox_MACBYTES) {
           try {
             const pairingResponse: P2PPairingResponse = JSON.parse(
-              await openCryptobox(payload, this.keyPair!.publicKey, this.keyPair!.secretKey)
+              await openCryptobox(payload, this.keyPair.publicKey, this.keyPair.secretKey)
             )
 
             logger.log(
@@ -628,7 +624,8 @@ export class P2PCommunicationClient extends CommunicationClient {
     // TODO: Improve to listen to "JOIN" event
     const room = await (await this.client.promise).getRoomById(roomId)
     logger.log(`waitForJoin`, `Currently ${room.members.length} members, we need at least 2`)
-    if (room.members.length >= 2) {
+    if (room.members.length >= 2 || room.members.length === 0) {
+      // 0 means it's an unknown room, we don't need to wait
       return
     } else {
       if (retry <= 200) {

@@ -39,12 +39,11 @@ import { SignatureTypeNotSupportedBeaconError } from './errors/SignatureTypeNotS
 import { getLogger, Logger, setLogger } from './utils/Logger'
 import { windowRef } from './MockWindow'
 import { CommunicationClient } from './transports/clients/CommunicationClient'
-import { ClientEvents } from './transports/clients/ClientEvents'
 // import { EncryptionType } from './types/EncryptionType'
 // import { EncryptionOperation } from './types/EncryptionOperation'
 
 // Clients
-export { BeaconClient, BeaconClientOptions, Client, ClientOptions, ClientEvents }
+export { BeaconClient, BeaconClientOptions, Client, ClientOptions }
 
 // Errors
 export {

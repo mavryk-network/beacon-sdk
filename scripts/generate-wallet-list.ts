@@ -1,6 +1,5 @@
 import * as path from 'path'
-import { readFile, writeFile } from 'node:fs/promises'
-
+import * as fs from 'fs'
 import {
   ExtensionApp,
   WebApp,
@@ -32,6 +31,28 @@ import {
 
 const resizeImg = require('resize-img')
 
+const readFile = (path: string): Promise<Buffer> => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(path, (err, res) => {
+      if (err) {
+        reject(err)
+      }
+      resolve(res)
+    })
+  })
+}
+
+function writeFile(path: string, data: any) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(path, data, (err: Error | null): void => {
+      if (err) {
+        reject(err)
+      }
+      resolve(undefined)
+    })
+  })
+}
+
 const generateForBlockchains = (
   packagePath: string,
   extensionList: ExtensionApp[],
@@ -45,23 +66,14 @@ const generateForBlockchains = (
   const convert = <T extends AppBase>(list: T[]): Promise<T[]> => {
     return Promise.all(
       list.map(async (entry) => {
+        const image = await resizeImg(await readFile(path.join(REGISTRY_DIR, entry.logo)), {
+          width: 64,
+          height: 64
+        })
+
         const ext = path.extname(entry.logo).replace('.', '')
 
-        if (!ext) {
-          return entry
-        }
-
-        const imgBuffer = await readFile(path.join(REGISTRY_DIR, entry.logo))
-
-        if (ext === 'svg') {
-          entry.logo = `data:image/svg+xml;base64,${imgBuffer.toString('base64')}`
-        } else {
-          const resizedImage = await resizeImg(imgBuffer, {
-            width: 256,
-            height: 256
-          })
-          entry.logo = `data:image/${ext};base64,${resizedImage.toString('base64')}`
-        }
+        entry.logo = `data:image/${ext};base64,${image.toString('base64')}`
 
         return entry
       })
@@ -103,6 +115,7 @@ const generateForBlockchains = (
   `
     out += `export const iOSList: App[] = ${JSON.stringify(iosListWithInlinedLogo, null, 2)}`
     out += `
+  
   `
 
     writeFile(path.join(ALERT_DEST_DIR, 'wallet-lists.ts'), out)

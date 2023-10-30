@@ -1,4 +1,6 @@
 {
-  "useWorkspaces": true,
-  "version": "4.0.12"
+  "packages": [
+    "packages/*"
+  ],
+  "version": "3.3.2"
 }

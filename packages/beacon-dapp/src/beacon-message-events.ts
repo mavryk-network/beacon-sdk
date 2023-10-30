@@ -65,11 +65,6 @@ export const messageEvents: {
     success: BeaconEvent.UNKNOWN,
     error: BeaconEvent.UNKNOWN
   },
-  [BeaconMessageType.ChangeAccountRequest]: {
-    sent: BeaconEvent.UNKNOWN,
-    success: BeaconEvent.UNKNOWN,
-    error: BeaconEvent.UNKNOWN
-  },
   [BeaconMessageType.Acknowledge]: {
     sent: BeaconEvent.UNKNOWN,
     success: BeaconEvent.UNKNOWN,

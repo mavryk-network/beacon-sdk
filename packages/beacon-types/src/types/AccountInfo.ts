@@ -11,7 +11,6 @@ export interface AccountInfo extends PermissionEntity {
     type: Origin
     id: string
   }
-  walletKey?: string
   publicKey: string
   connectedAt: number
   notification?: Notification

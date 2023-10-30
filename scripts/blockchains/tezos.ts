@@ -1,11 +1,11 @@
 import { App, DesktopApp, ExtensionApp, WebApp } from 'packages/beacon-types/src/types/ui'
-
+// import { NetworkType } from 'packages/beacon-types/src/types'
 // TODO: Temporary build fix
 export enum NetworkType {
   MAINNET = 'mainnet',
   GHOSTNET = 'ghostnet', // Long running testnet
   MONDAYNET = 'mondaynet', // Testnet, resets every monday
-  DAILYNET = 'dailynet', // Testnet, resets every day
+  DAILYNET = 'mondaynet', // Testnet, resets every day
   DELPHINET = 'delphinet',
   EDONET = 'edonet',
   FLORENCENET = 'florencenet',
@@ -16,8 +16,6 @@ export enum NetworkType {
   KATHMANDUNET = 'kathmandunet',
   LIMANET = 'limanet',
   MUMBAINET = 'mumbainet',
-  NAIROBINET = 'nairobinet',
-  OXFORDNET = 'oxfordnet',
   CUSTOM = 'custom'
 }
 
@@ -34,16 +32,7 @@ export const tezosExtensionList: ExtensionApp[] = [
   {
     key: 'temple_chrome',
     id: 'ookjlbkiijinhpmnjffcofjonbfbgaoc',
-    name: 'Temple Wallet Chrome',
-    shortName: 'Temple',
-    color: '',
-    logo: 'extension-temple.png',
-    link: 'https://templewallet.com/'
-  },
-  {
-    key: 'temple_firefox',
-    id: '{34ac229e-1cf5-4e4c-8a77-988155c4360f}',
-    name: 'Temple Wallet Firefox',
+    name: 'Temple Wallet',
     shortName: 'Temple',
     color: '',
     logo: 'extension-temple.png',
@@ -52,31 +41,6 @@ export const tezosExtensionList: ExtensionApp[] = [
 ]
 
 export const tezosWebList: WebApp[] = [
-  {
-    key: 'metamask_tezos_web',
-    name: 'MetaMask',
-    shortName: 'MetaMask',
-    color: '',
-    logo: 'web-metamask.png',
-    links: {
-      [NetworkType.MAINNET]: 'https://metamask.tezos.com/',
-      [NetworkType.GHOSTNET]: 'https://metamask.tezos.com/',
-      [NetworkType.MONDAYNET]: 'https://metamask.tezos.com/',
-      [NetworkType.DAILYNET]: 'https://metamask.tezos.com/',
-      [NetworkType.DELPHINET]: 'https://metamask.tezos.com/',
-      [NetworkType.EDONET]: 'https://metamask.tezos.com/',
-      [NetworkType.FLORENCENET]: 'https://metamask.tezos.com/',
-      [NetworkType.GRANADANET]: 'https://metamask.tezos.com/',
-      [NetworkType.HANGZHOUNET]: 'https://metamask.tezos.com/',
-      [NetworkType.ITHACANET]: 'https://metamask.tezos.com/',
-      [NetworkType.JAKARTANET]: 'https://metamask.tezos.com/',
-      [NetworkType.KATHMANDUNET]: 'https://metamask.tezos.com/',
-      [NetworkType.LIMANET]: 'https://metamask.tezos.com/',
-      [NetworkType.MUMBAINET]: 'https://metamask.tezos.com/',
-      [NetworkType.NAIROBINET]: 'https://metamask.tezos.com/',
-      [NetworkType.OXFORDNET]: 'https://metamask.tezos.com/'
-    }
-  },
   {
     key: 'kukai_web',
     name: 'Kukai Wallet',
@@ -97,9 +61,7 @@ export const tezosWebList: WebApp[] = [
       [NetworkType.JAKARTANET]: 'https://jakartanet.kukai.app',
       [NetworkType.KATHMANDUNET]: 'https://kathmandunet.kukai.app',
       [NetworkType.LIMANET]: 'https://limanet.kukai.app',
-      [NetworkType.MUMBAINET]: 'https://mumbainet.kukai.app',
-      [NetworkType.NAIROBINET]: 'https://nairobinet.kukai.app',
-      [NetworkType.OXFORDNET]: 'https://oxfordnet.kukai.app'
+      [NetworkType.MUMBAINET]: 'https://mumbainet.kukai.app'
     }
   }
 ]
@@ -111,8 +73,15 @@ export const tezosDesktopList: DesktopApp[] = [
     shortName: 'Infinity Wallet',
     color: 'rgb(52, 147, 218)',
     logo: 'infinity-wallet.png',
-    deepLink: 'infinity://',
-    downloadLink: 'https://infinitywallet.io/download'
+    deepLink: 'infinity://'
+  },
+  {
+    key: 'galleon_desktop',
+    name: 'Galleon',
+    shortName: 'Galleon',
+    color: '',
+    logo: 'desktop-galleon.png',
+    deepLink: 'galleon://'
   },
   {
     key: 'umami_desktop',
@@ -120,8 +89,7 @@ export const tezosDesktopList: DesktopApp[] = [
     shortName: 'Umami',
     color: '',
     logo: 'desktop-umami.png',
-    deepLink: 'umami://',
-    downloadLink: 'https://umamiwallet.com/#download'
+    deepLink: 'umami://'
   },
   {
     key: 'atomex_desktop',
@@ -129,8 +97,7 @@ export const tezosDesktopList: DesktopApp[] = [
     shortName: 'Atomex',
     color: '',
     logo: 'desktop-atomex.png',
-    deepLink: 'atomex://',
-    downloadLink: 'https://atomex.me/'
+    deepLink: 'atomex://'
   }
 ]
 
@@ -145,12 +112,12 @@ export const tezosIosList: App[] = [
     deepLink: 'airgap-wallet://'
   },
   {
-    key: 'plenty_wallet_ios',
-    name: 'Plenty Wallet - your portal to web3 ',
-    shortName: 'Plenty Wallet',
-    color: '',
-    logo: 'ios-plenty-wallet.png',
-    universalLink: 'https://www.naan.app/',
+    key: 'naan_ios',
+    name: 'Naan Wallet',
+    shortName: 'Naan',
+    color: 'rgb(129, 100, 100)',
+    logo: 'ios-naan.png',
+    universalLink: 'https://naanwallet.com',
     deepLink: 'naan://'
   },
   {
@@ -178,43 +145,13 @@ export const tezosIosList: App[] = [
     logo: 'ios-temple.png',
     universalLink: 'https://templewallet.com',
     deepLink: 'temple://'
-  },
-  {
-    key: 'atomex_ios',
-    name: 'Atomex Wallet',
-    shortName: 'Atomex',
-    color: '',
-    logo: 'ios-atomex.png',
-    universalLink: 'https://atomex.me',
-    deepLink: 'atomex://'
-  },
-  {
-    key: 'umami_ios',
-    name: 'Umami Mobile',
-    shortName: 'Umami Mobile',
-    color: '',
-    logo: 'desktop-umami.png',
-    deepLink: 'umami://',
-    universalLink: 'https://umamiwallet.com/'
-  },
-  {
-    key: 'trust_ios',
-    name: 'Trust Wallet',
-    shortName: 'Trust Wallet',
-    color: '',
-    supportedInteractionStandards: ['wallet_connect'],
-    logo: 'ios-trust.png',
-    universalLink: 'https://trustwallet.com',
-    deepLink: 'trust://'
-  },
-  {
-    key: 'exodus_mobile',
-    name: 'Exodus Mobile',
-    shortName: 'Exodus',
-    color: '',
-    logo: 'exodus.svg',
-    supportedInteractionStandards: ['beacon'],
-    deepLink: 'exodus://wc',
-    universalLink: 'https://www.exodus.com/'
   }
+  // {
+  //   name: 'Galleon',
+  //   shortName: 'Galleon',
+  //   color: '',
+  //   logo: 'ios-galleon.png',
+  //   universalLink: 'https://cryptonomic.tech',
+  //   deepLink: 'galleon://'
+  // }
 ]
