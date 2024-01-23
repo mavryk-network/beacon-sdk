@@ -14,7 +14,7 @@ import { DesktopApp, App, ExtensionApp, WebApp } from '@mavrykdynamics/beacon-ty
 // export default Pairing
 
 /**
- * Initialize with tezos wallets for backwards compatibility
+ * Initialize with mavryk wallets for backwards compatibility
  */
 let localDesktopList: DesktopApp[] = desktopList
 let localExtensionList: ExtensionApp[] = extensionList

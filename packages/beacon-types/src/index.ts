@@ -183,7 +183,7 @@ export {
   TezosOperation
 }
 
-// Tezos Operations
+// Mavryk Operations
 export {
   TezosActivateAccountOperation,
   TezosBallotOperation,

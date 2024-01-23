@@ -4,7 +4,7 @@ This package is part of the `@mavrykdynamics/beacon-sdk` project. [Read more](ht
 
 ## Introduction
 
-This package adds support for `tezos-sapling`, the sapling integration on the Tezos blockchain. It can be used in combination with the `@mavrykdynamics/beacon-dapp` or `@mavrykdynamics/beacon-wallet` packages.
+This package adds support for `tezos-sapling`, the sapling integration on the Mavryk blockchain. It can be used in combination with the `@mavrykdynamics/beacon-dapp` or `@mavrykdynamics/beacon-wallet` packages.
 
 ## Usage
 

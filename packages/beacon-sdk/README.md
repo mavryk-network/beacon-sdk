@@ -1,12 +1,12 @@
 # Beacon SDK
 
 [![npm](https://img.shields.io/npm/v/@mavrykdynamics/beacon-sdk.svg?colorB=brightgreen)](https://www.npmjs.com/package/@mavrykdynamics/beacon-sdk)
-[![documentation](https://img.shields.io/badge/documentation-online-brightgreen.svg)](https://mavryk-network.github.io/beacon-sdk/)
+[![documentation](https://img.shields.io/badge/documentation-online-brightgreen.svg)](https://beacon.mavryk.org/)
 [![GitHub Action](https://github.com/mavryk-network/beacon-sdk/workflows/Build%2C%20Test%20and%20Analyze/badge.svg)](https://github.com/mavryk-network/beacon-sdk/actions?query=workflow%3A%22Build%2C+Test+and+Analyze%22+branch%3Amain)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mavryk-network_beacon-sdk&metric=alert_status)](https://sonarcloud.io/dashboard?id=airgap-it_beacon-sdk)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-> Connect Wallets with dApps on Tezos
+> Connect Wallets with dApps on Mavryk
 
 [Beacon](https://walletbeacon.io) is the implementation of the wallet interaction standard [tzip-10](https://gitlab.com/tzip/tzip/blob/master/proposals/tzip-10/tzip-10.md) which describes the connnection of a dApp with a wallet.
 
@@ -64,7 +64,7 @@ client
         network: message.network, // Use the same network that the user requested
         scopes: [PermissionScope.OPERATION_REQUEST], // Ignore the scopes that have been requested and instead give only operation permissions
         id: message.id,
-        publicKey: 'tezos public key'
+        publicKey: 'mavryk public key'
       }
 
       // Send response back to DApp
