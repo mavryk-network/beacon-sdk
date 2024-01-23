@@ -31,7 +31,7 @@ describe(`Crypto`, () => {
           'edpkuxyLpwfawtWCazyBJQwpWtD9Ehs1KpnHzyNLyvtdPSf16DKA8A'
         )
 
-        expect(address).to.deep.equal('mv1DEQX1nJDGVJ832gQzASpL6nPgvswz3Fev')
+        expect(address).to.deep.equal('mv1N4FBsRou463dftRBgDmSxr3mgM1JKCHs1')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
@@ -54,7 +54,7 @@ describe(`Crypto`, () => {
           'sppk7bWyHyv5QStTzJmFkeH5Caf6WKoDHDx64AxEtpBwwxgZu6vpmjU'
         )
 
-        expect(address).to.deep.equal('mv2QhQTMmqLXtL7DxRtvmZeuLXiD1Jb7zZau')
+        expect(address).to.deep.equal('mv2L2nFM9YHnsqxc8zbb3owZruDdjY8b5bfY')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
@@ -77,7 +77,7 @@ describe(`Crypto`, () => {
           'p2pk67wVncLFS1DQDm2gVR45sYCzQSXTtqn3bviNYXVCq6WRoqtxHXL'
         )
 
-        expect(address).to.deep.equal('mv3DNcRaNQktp5k6EbwmSCd9t6yDXC1WvPmD')
+        expect(address).to.deep.equal('mv3DafLtx9N5aM5LjVrQrqqFdfW8EsbUjxaK')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
