@@ -1,9 +1,9 @@
 # Beacon SDK
 
 [![npm](https://img.shields.io/npm/v/@mavrykdynamics/beacon-sdk.svg?colorB=brightgreen)](https://www.npmjs.com/package/@mavrykdynamics/beacon-sdk)
-[![documentation](https://img.shields.io/badge/documentation-online-brightgreen.svg)](https://airgap-it.github.io/beacon-sdk/)
-[![GitHub Action](https://github.com/airgap-it/beacon-sdk/workflows/Build%2C%20Test%20and%20Analyze/badge.svg)](https://github.com/airgap-it/beacon-sdk/actions?query=workflow%3A%22Build%2C+Test+and+Analyze%22+branch%3Amain)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=airgap-it_beacon-sdk&metric=alert_status)](https://sonarcloud.io/dashboard?id=airgap-it_beacon-sdk)
+[![documentation](https://img.shields.io/badge/documentation-online-brightgreen.svg)](https://mavryk-network.github.io/beacon-sdk/)
+[![GitHub Action](https://github.com/mavryk-network/beacon-sdk/workflows/Build%2C%20Test%20and%20Analyze/badge.svg)](https://github.com/mavryk-network/beacon-sdk/actions?query=workflow%3A%22Build%2C+Test+and+Analyze%22+branch%3Amain)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mavryk-network_beacon-sdk&metric=alert_status)](https://sonarcloud.io/dashboard?id=mavrykdynamics_beacon-sdk)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 > Connect Wallets with dApps on Tezos
@@ -18,8 +18,8 @@ Developers that plan to develop complex smart contract interactions can use [Taq
 
 Besides this Typescript SDK, we also provide SDKs for native iOS and Android Wallets:
 
-- [Beacon Android SDK (Kotlin)](https://github.com/airgap-it/beacon-android-sdk)
-- [Beacon iOS SDK (Swift)](https://github.com/airgap-it/beacon-ios-sdk)
+- [Beacon Android SDK (Kotlin)](https://github.com/mavryk-network/beacon-android-sdk)
+- [Beacon iOS SDK (Swift)](https://github.com/mavryk-network/beacon-ios-sdk)
 
 ## Documentation
 

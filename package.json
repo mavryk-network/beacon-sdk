@@ -18,7 +18,7 @@
     "dapp"
   ],
   "license": "MIT",
-  "homepage": "https://www.airgap.it",
+  "homepage": "https://www.mavryk.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/mavryk-network/beacon-sdk"
