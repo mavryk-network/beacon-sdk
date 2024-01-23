@@ -14,7 +14,7 @@
 
 The `beacon-sdk` simplifies and abstracts the communication between dApps and wallets over different transport layers.
 
-Developers that plan to develop complex smart contract interactions can use [Taquito](https://github.com/ecadlabs/taquito) with the `BeaconWallet`, which uses this SDK under the hood, but provides helpful methods to interact with contracts.
+Developers that plan to develop complex smart contract interactions can use [Taquito](https://github.com/mavryk-network/mavryk-taquito) with the `BeaconWallet`, which uses this SDK under the hood, but provides helpful methods to interact with contracts.
 
 Besides this Typescript SDK, we also provide SDKs for native iOS and Android Wallets:
 
