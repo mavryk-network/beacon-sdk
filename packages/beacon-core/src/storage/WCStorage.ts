@@ -1,4 +1,4 @@
-import { StorageKey } from '@airgap/beacon-types'
+import { StorageKey } from '@mavrykdynamics/beacon-types'
 import { LocalStorage } from './LocalStorage'
 import { IndexedDBStorage } from './IndexedDBStorage'
 
