@@ -35,10 +35,10 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-core": "4.2.1",
-    "@mavrykdynamics/beacon-transport-matrix": "4.2.1",
-    "@mavrykdynamics/beacon-transport-postmessage": "4.2.1",
-    "@mavrykdynamics/beacon-transport-walletconnect": "4.2.1",
-    "@mavrykdynamics/beacon-ui": "4.2.1"
+    "@mavrykdynamics/beacon-core": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-matrix": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-walletconnect": "^4.2.1",
+    "@mavrykdynamics/beacon-ui": "^4.2.1"
   }
 }

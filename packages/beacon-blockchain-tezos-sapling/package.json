@@ -34,7 +34,7 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-types": "4.2.1",
-    "@mavrykdynamics/beacon-ui": "4.2.1"
+    "@mavrykdynamics/beacon-types": "^4.2.1",
+    "@mavrykdynamics/beacon-ui": "^4.2.1"
   }
 }
