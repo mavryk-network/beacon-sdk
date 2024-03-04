@@ -5,23 +5,11 @@ export class TzktBlockExplorer extends BlockExplorer {
   constructor(
     public readonly rpcUrls: { [key in NetworkType]: string } = {
       [NetworkType.MAINNET]: 'https://tzkt.io',
-      [NetworkType.GHOSTNET]: 'https://ghostnet.tzkt.io',
+      [NetworkType.BASENET]: 'https://api.mavryk.network/basenet',
       [NetworkType.WEEKLYNET]: 'https://weeklynet.tzkt.io',
-      [NetworkType.DAILYNET]: 'https://dailynet.tzkt.io',
-      [NetworkType.DELPHINET]: 'https://delphinet.tzkt.io',
-      [NetworkType.EDONET]: 'https://edonet.tzkt.io',
-      [NetworkType.FLORENCENET]: 'https://florencenet.tzkt.io',
-      [NetworkType.GRANADANET]: 'https://granadanet.tzkt.io',
-      [NetworkType.HANGZHOUNET]: 'https://hangzhounet.tzkt.io',
-      [NetworkType.ITHACANET]: 'https://ithacanet.tzkt.io',
-      [NetworkType.JAKARTANET]: 'https://jakartanet.tzkt.io',
-      [NetworkType.KATHMANDUNET]: 'https://kathmandunet.tzkt.io',
-      [NetworkType.LIMANET]: 'https://limanet.tzkt.io',
-      [NetworkType.MUMBAINET]: 'https://mumbainet.tzkt.io',
-      [NetworkType.NAIROBINET]: 'https://nairobinet.tzkt.io',
-      [NetworkType.OXFORDNET]: 'https://oxfordnet.tzkt.io',
-      [NetworkType.BASENET]: 'https://api.mavryk.network',
-      [NetworkType.CUSTOM]: 'https://oxfordnet.tzkt.io'
+      [NetworkType.DAILYNET]: 'https://api.mavryk.network/dailynet',
+      [NetworkType.ATLASNET]: 'https://api.mavryk.network/atlasnet',
+      [NetworkType.CUSTOM]: 'https://api.mavryk.network/atlasnet',
     }
   ) {
     super(rpcUrls)

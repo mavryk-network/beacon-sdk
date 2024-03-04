@@ -3,21 +3,10 @@ import { App, DesktopApp, ExtensionApp, WebApp } from 'packages/beacon-types/src
 // TODO: Temporary build fix
 export enum NetworkType {
   MAINNET = 'mainnet',
-  GHOSTNET = 'ghostnet', // Long running testnet
+  BASENET = 'basenet', // Long running testnet
   WEEKLYNET = 'weeklynet', // Testnet, resets every week
   DAILYNET = 'dailynet', // Testnet, resets every day
-  DELPHINET = 'delphinet',
-  EDONET = 'edonet',
-  FLORENCENET = 'florencenet',
-  GRANADANET = 'granadanet',
-  HANGZHOUNET = 'hangzhounet',
-  ITHACANET = 'ithacanet',
-  JAKARTANET = 'jakartanet',
-  KATHMANDUNET = 'kathmandunet',
-  LIMANET = 'limanet',
-  MUMBAINET = 'mumbainet',
-  NAIROBINET = 'nairobinet',
-  OXFORDNET = 'oxfordnet',
+  ATLASNET = 'atlasnet',
   CUSTOM = 'custom'
 }
 
@@ -60,21 +49,10 @@ export const tezosWebList: WebApp[] = [
     logo: 'web-metamask.png',
     links: {
       [NetworkType.MAINNET]: 'https://metamask.tezos.com/',
-      [NetworkType.GHOSTNET]: 'https://metamask.tezos.com/',
+      [NetworkType.BASENET]: 'https://metamask.tezos.com/',
       [NetworkType.WEEKLYNET]: 'https://metamask.tezos.com/',
       [NetworkType.DAILYNET]: 'https://metamask.tezos.com/',
-      [NetworkType.DELPHINET]: 'https://metamask.tezos.com/',
-      [NetworkType.EDONET]: 'https://metamask.tezos.com/',
-      [NetworkType.FLORENCENET]: 'https://metamask.tezos.com/',
-      [NetworkType.GRANADANET]: 'https://metamask.tezos.com/',
-      [NetworkType.HANGZHOUNET]: 'https://metamask.tezos.com/',
-      [NetworkType.ITHACANET]: 'https://metamask.tezos.com/',
-      [NetworkType.JAKARTANET]: 'https://metamask.tezos.com/',
-      [NetworkType.KATHMANDUNET]: 'https://metamask.tezos.com/',
-      [NetworkType.LIMANET]: 'https://metamask.tezos.com/',
-      [NetworkType.MUMBAINET]: 'https://metamask.tezos.com/',
-      [NetworkType.NAIROBINET]: 'https://metamask.tezos.com/',
-      [NetworkType.OXFORDNET]: 'https://metamask.tezos.com/'
+      [NetworkType.ATLASNET]: 'https://metamask.tezos.com/'
     }
   },
   {
@@ -86,21 +64,10 @@ export const tezosWebList: WebApp[] = [
     supportedInteractionStandards: ['wallet_connect'],
     links: {
       [NetworkType.MAINNET]: 'https://wallet.kukai.app',
-      [NetworkType.GHOSTNET]: 'https://ghostnet.kukai.app',
+      [NetworkType.BASENET]: 'https://basenet.kukai.app',
       [NetworkType.WEEKLYNET]: 'https://weeklynet.kukai.app',
       [NetworkType.DAILYNET]: 'https://dailynet.kukai.app',
-      [NetworkType.DELPHINET]: 'https://testnet.kukai.app',
-      [NetworkType.EDONET]: 'https://edonet.kukai.app',
-      [NetworkType.FLORENCENET]: 'https://florencenet.kukai.app',
-      [NetworkType.GRANADANET]: 'https://granadanet.kukai.app',
-      [NetworkType.HANGZHOUNET]: 'https://hangzhounet.kukai.app',
-      [NetworkType.ITHACANET]: 'https://ithacanet.kukai.app',
-      [NetworkType.JAKARTANET]: 'https://jakartanet.kukai.app',
-      [NetworkType.KATHMANDUNET]: 'https://kathmandunet.kukai.app',
-      [NetworkType.LIMANET]: 'https://limanet.kukai.app',
-      [NetworkType.MUMBAINET]: 'https://mumbainet.kukai.app',
-      [NetworkType.NAIROBINET]: 'https://nairobinet.kukai.app',
-      [NetworkType.OXFORDNET]: 'https://oxfordnet.kukai.app'
+      [NetworkType.ATLASNET]: 'https://atlasnet.kukai.app'
     }
   },
 
@@ -112,21 +79,10 @@ export const tezosWebList: WebApp[] = [
     logo: 'tzsafe.svg',
     links: {
       [NetworkType.MAINNET]: 'https://tzsafe.marigold.dev',
-      [NetworkType.GHOSTNET]: 'https://ghostnet.tzsafe.marigold.dev',
+      [NetworkType.BASENET]: 'https://ghostnet.tzsafe.marigold.dev',
       [NetworkType.WEEKLYNET]: 'https://ghostnet.tzsafe.marigold.dev',
       [NetworkType.DAILYNET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.DELPHINET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.EDONET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.FLORENCENET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.GRANADANET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.HANGZHOUNET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.ITHACANET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.JAKARTANET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.KATHMANDUNET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.LIMANET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.MUMBAINET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.NAIROBINET]: 'https://ghostnet.tzsafe.marigold.dev',
-      [NetworkType.OXFORDNET]: 'https://ghostnet.tzsafe.marigold.dev'
+      [NetworkType.ATLASNET]: 'https://ghostnet.tzsafe.marigold.dev'
     }
   }
 ]

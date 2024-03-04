@@ -3,22 +3,10 @@ import { App, DesktopApp, ExtensionApp, WebApp } from 'packages/beacon-types/src
 // TODO: Temporary build fix
 export enum NetworkType {
   MAINNET = 'mainnet',
-  GHOSTNET = 'ghostnet', // Long running testnet
+  BASENET = 'basenet', // Long running testnet
   WEEKLYNET = 'weeklynet', // Testnet, resets every week
   DAILYNET = 'dailynet', // Testnet, resets every day
-  DELPHINET = 'delphinet',
-  EDONET = 'edonet',
-  FLORENCENET = 'florencenet',
-  GRANADANET = 'granadanet',
-  HANGZHOUNET = 'hangzhounet',
-  ITHACANET = 'ithacanet',
-  JAKARTANET = 'jakartanet',
-  KATHMANDUNET = 'kathmandunet',
-  LIMANET = 'limanet',
-  MUMBAINET = 'mumbainet',
-  NAIROBINET = 'nairobinet',
-  OXFORDNET = 'oxfordnet',
-  BASENET = 'basenet',
+  ATLASNET = 'atlasnet',
   CUSTOM = 'custom'
 }
 
