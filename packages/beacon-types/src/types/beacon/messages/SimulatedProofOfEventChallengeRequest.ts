@@ -1,4 +1,4 @@
-import { BeaconBaseMessage, BeaconMessageType } from '@airgap/beacon-types'
+import { BeaconBaseMessage, BeaconMessageType } from '@mavrykdynamics/beacon-types'
 
 export interface SimulatedProofOfEventChallengeRequest extends BeaconBaseMessage {
   type: BeaconMessageType.SimulatedProofOfEventChallengeRequest

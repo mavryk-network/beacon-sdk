@@ -2,7 +2,7 @@ import { Component, For } from 'solid-js'
 import { MergedWallet } from '../../utils/wallets'
 import Wallet from '../wallet'
 import styles from './styles.css'
-import { StorageKey } from '@airgap/beacon-types'
+import { StorageKey } from '@mavrykdynamics/beacon-types'
 
 interface TopWalletsProps {
   wallets: MergedWallet[]

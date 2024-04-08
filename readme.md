@@ -34,7 +34,7 @@ npm i --save @mavrykdynamics/beacon-sdk
 ## Example DApp integration
 
 ```ts
-import { DAppClient } from '@airgap/beacon-sdk'
+import { DAppClient } from '@mavrykdynamics/beacon-sdk'
 
 const dAppClient = new DAppClient({ name: 'My Sample DApp' })
 
