@@ -32,7 +32,7 @@ const account2: AccountInfo = {
     type: Origin.P2P,
     id: 'o2'
   },
-  address: 'tz2',
+  address: 'mv2',
   publicKey: 'pubkey2',
   network: { type: NetworkType.MAINNET },
   scopes: [PermissionScope.SIGN],
@@ -47,7 +47,7 @@ const account3: AccountInfo = {
     type: Origin.P2P,
     id: 'o3'
   },
-  address: 'tz3',
+  address: 'mv3',
   publicKey: 'pubkey3',
   network: { type: NetworkType.MAINNET },
   scopes: [PermissionScope.SIGN],

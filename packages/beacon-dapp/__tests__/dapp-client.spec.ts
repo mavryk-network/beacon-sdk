@@ -88,7 +88,7 @@ const account2: AccountInfo = {
     type: Origin.P2P,
     id: peer1.publicKey
   },
-  address: 'tz2',
+  address: 'mv2',
   publicKey: 'pubkey2',
   network: { type: NetworkType.MAINNET },
   scopes: [PermissionScope.SIGN],
@@ -318,7 +318,7 @@ describe(`DAppClient`, () => {
         type: Origin.P2P,
         id: 'o1'
       },
-      address: 'tz1',
+      address: 'mv1',
       publicKey: 'pubkey1',
       network: { type: NetworkType.MAINNET },
       scopes: [PermissionScope.SIGN],

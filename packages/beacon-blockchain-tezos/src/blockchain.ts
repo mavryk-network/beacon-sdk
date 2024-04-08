@@ -11,7 +11,7 @@ import {
 import { desktopList, extensionList, iOSList, webList } from './ui/alert/wallet-lists'
 
 export class TezosBlockchain implements Blockchain {
-  public readonly identifier: string = 'xtz'
+  public readonly identifier: string = 'mvrk'
   async validateRequest(input: BlockchainMessage): Promise<void> {
     // TODO: Validation
     if (input) {

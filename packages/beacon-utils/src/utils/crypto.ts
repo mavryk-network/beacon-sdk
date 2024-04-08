@@ -155,17 +155,17 @@ export async function openCryptobox(
  */
 export async function getAddressFromPublicKey(publicKey: string): Promise<string> {
   const prefixes = {
-    // tz1...
+    // mv1...
     edpk: {
       length: 54,
       prefix: Buffer.from(new Uint8Array([5, 186, 196]))
     },
-    // tz2...
+    // mv2...
     sppk: {
       length: 55,
       prefix: Buffer.from(new Uint8Array([5, 186, 199]))
     },
-    // tz3...
+    // mv3...
     p2pk: {
       length: 55,
       prefix: Buffer.from(new Uint8Array([5, 186, 201]))
@@ -267,7 +267,7 @@ export const signMessage = async (
 }
 
 export const isValidAddress = (address: string): boolean => {
-  const prefixes = ['tz1', 'tz2', 'tz3', 'tz4', 'KT1', 'txr1', 'sr1']
+  const prefixes = ['mv1', 'mv2', 'mv3', 'mv4', 'KT1', 'txr1', 'sr1']
 
   if (!prefixes.some((p) => address.toLowerCase().startsWith(p.toLowerCase()))) {
     return false

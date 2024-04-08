@@ -16,7 +16,7 @@ chai.use(chaiAsPromised)
 const expect = chai.expect
 
 describe(`Crypto`, () => {
-  describe(`tz1`, () => {
+  describe(`mv1`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should convert plain public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
@@ -47,7 +47,7 @@ describe(`Crypto`, () => {
     })
   })
 
-  describe(`tz2`, () => {
+  describe(`mv2`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should sppk public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
@@ -70,7 +70,7 @@ describe(`Crypto`, () => {
     })
   })
 
-  describe(`tz3`, () => {
+  describe(`mv3`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should p2pk public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
@@ -131,7 +131,7 @@ describe(`Crypto`, () => {
   })
 
   it(`should validate valid addresses`, async () => {
-    const address = 'tz1YZkgk9jfxcBTKWvaFTuh5fPxYEueQGDT8'
+    const address = 'mv1VYv4LkHo5BGn9RdWHgEqmaU2xmQctA7Mt'
 
     const isValid = isValidAddress(address)
 

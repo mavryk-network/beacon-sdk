@@ -28,7 +28,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o1'
       },
-      address: 'tz1',
+      address: 'mv1',
       pubkey: 'pubkey1',
       network: { type: NetworkType.MAINNET },
       scopes: [],
@@ -42,7 +42,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o2'
       },
-      address: 'tz2',
+      address: 'mv2',
       pubkey: 'pubkey2',
       network: { type: NetworkType.MAINNET },
       scopes: [],
@@ -56,7 +56,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o3'
       },
-      address: 'tz3',
+      address: 'mv3',
       pubkey: 'pubkey3',
       network: { type: NetworkType.MAINNET },
       scopes: [],
