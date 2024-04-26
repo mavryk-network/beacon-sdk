@@ -17,13 +17,13 @@ export const tezosSaplingWebList: WebApp[] = []
 export const tezosSaplingDesktopList: DesktopApp[] = []
 
 export const tezosSaplingIosList: App[] = [
-  {
-    key: 'airgap_ios',
-    name: 'AirGap Wallet',
-    shortName: 'AirGap',
-    color: 'rgb(4, 235, 204)',
-    logo: 'ios-airgap.png',
-    universalLink: 'https://wallet.airgap.it',
-    deepLink: 'airgap-wallet://'
-  }
+  // {
+  //   key: 'airgap_ios',
+  //   name: 'AirGap Wallet',
+  //   shortName: 'AirGap',
+  //   color: 'rgb(4, 235, 204)',
+  //   logo: 'ios-airgap.png',
+  //   universalLink: 'https://wallet.airgap.it',
+  //   deepLink: 'airgap-wallet://'
+  // }
 ]
