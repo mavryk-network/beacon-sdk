@@ -5,11 +5,11 @@ export class TzktBlockExplorer extends BlockExplorer {
   constructor(
     public readonly rpcUrls: { [key in NetworkType]: string } = {
       [NetworkType.MAINNET]: 'https://tzkt.io',
-      [NetworkType.BASENET]: 'https://api.mavryk.network/basenet',
+      [NetworkType.BASENET]: 'https://basenet.api.mavryk.network',
       [NetworkType.WEEKLYNET]: 'https://weeklynet.tzkt.io',
-      [NetworkType.DAILYNET]: 'https://api.mavryk.network/dailynet',
-      [NetworkType.ATLASNET]: 'https://api.mavryk.network/atlasnet',
-      [NetworkType.CUSTOM]: 'https://api.mavryk.network/atlasnet',
+      [NetworkType.DAILYNET]: 'https://dailynet.api.mavryk.network',
+      [NetworkType.ATLASNET]: 'https://atlasnet.api.mavryk.network',
+      [NetworkType.CUSTOM]: 'https://atlasnet.api.mavryk.network',
     }
   ) {
     super(rpcUrls)
