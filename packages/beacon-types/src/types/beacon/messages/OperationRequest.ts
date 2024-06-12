@@ -1,5 +1,5 @@
 import { BeaconBaseMessage, BeaconMessageType, Network } from '@mavrykdynamics/beacon-types'
-import { PartialTezosOperation } from '../../tezos/PartialTezosOperation'
+import { PartialMavrykOperation } from '../../mavryk/PartialMavrykOperation'
 
 /**
  * @category Message
@@ -7,6 +7,6 @@ import { PartialTezosOperation } from '../../tezos/PartialTezosOperation'
 export interface OperationRequest extends BeaconBaseMessage {
   type: BeaconMessageType.OperationRequest
   network: Network // Network on which the operation will be broadcast
-  operationDetails: PartialTezosOperation[] // Partial TezosOperation that may lack certain information like counter and fee. Those will be added by the wallet.
+  operationDetails: PartialMavrykOperation[] // Partial MavrykOperation that may lack certain information like counter and fee. Those will be added by the wallet.
   sourceAddress: string
 }

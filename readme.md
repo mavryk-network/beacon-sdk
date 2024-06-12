@@ -72,7 +72,7 @@ client
         network: message.network, // Use the same network that the user requested
         scopes: [PermissionScope.OPERATION_REQUEST], // Ignore the scopes that have been requested and instead give only operation permissions
         id: message.id,
-        publicKey: 'tezos public key'
+        publicKey: 'mavryk public key'
       }
 
       // Send response back to DApp

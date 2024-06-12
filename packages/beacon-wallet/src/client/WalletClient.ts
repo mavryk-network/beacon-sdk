@@ -168,7 +168,7 @@ export class WalletClient extends Client {
       .data
 
     const constructedString = [
-      'Tezos Signed Message: ',
+      'Mavryk Signed Message: ',
       challenge.id,
       challenge.timestamp,
       accountPublicKey,

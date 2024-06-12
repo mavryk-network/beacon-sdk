@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@mavrykdynamics/beacon-blockchain-substrate": "^4.2.2",
-    "@mavrykdynamics/beacon-blockchain-tezos": "^4.2.2",
+    "@mavrykdynamics/beacon-blockchain-mavryk": "^4.2.2",
     "@mavrykdynamics/beacon-core": "^4.2.2",
     "@mavrykdynamics/beacon-dapp": "^4.2.2",
     "@mavrykdynamics/beacon-transport-matrix": "^4.2.2",

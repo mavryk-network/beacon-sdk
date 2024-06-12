@@ -1,8 +1,8 @@
-import { PartialTezosOperation } from './tezos/PartialTezosOperation'
+import { PartialMavrykOperation } from './mavryk/PartialMavrykOperation'
 
 /**
  * @category DApp
  */
 export interface RequestOperationInput {
-  operationDetails: PartialTezosOperation[]
+  operationDetails: PartialMavrykOperation[]
 }

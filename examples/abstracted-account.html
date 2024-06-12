@@ -291,8 +291,8 @@
         preferredNetwork: beacon.NetworkType.GHOSTNET
       })
 
-      const Tezos = new taquito.TezosToolkit('https://ghostnet.tezos.marigold.dev/')
-      Tezos.setWalletProvider(new BeaconWallet(dappClient))
+      const Mavryk = new taquito.MavrykToolkit('https://ghostnet.mavryk.marigold.dev/')
+      Mavryk.setWalletProvider(new BeaconWallet(dappClient))
 
       const updateActiveAccount = () => {
         dappClient.getActiveAccount().then((activeAccount) => {
@@ -315,7 +315,7 @@
       const signProofOfEvent = async ({ challenge_id, payload }) => {
         const encoder = new TextEncoder()
 
-        const contract = await Tezos.wallet.at(ABSTRACTED_ACCOUNT_ADDRESS)
+        const contract = await Mavryk.wallet.at(ABSTRACTED_ACCOUNT_ADDRESS)
 
         return contract.methodsObject
           .proof_of_event_challenge({

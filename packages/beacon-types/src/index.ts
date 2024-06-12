@@ -20,28 +20,28 @@ import { SignPayloadResponse } from './types/beacon/messages/SignPayloadResponse
 import { BroadcastRequest } from './types/beacon/messages/BroadcastRequest'
 import { BroadcastResponse } from './types/beacon/messages/BroadcastResponse'
 import { NetworkType } from './types/beacon/NetworkType'
-import { TezosBaseOperation } from './types/tezos/TezosBaseOperation'
-import { TezosOperationType } from './types/tezos/OperationTypes'
-import { TezosActivateAccountOperation } from './types/tezos/operations/ActivateAccount'
-import { TezosBallotOperation } from './types/tezos/operations/Ballot'
-import { TezosDelegationOperation } from './types/tezos/operations/Delegation'
-import { TezosDoubleBakingEvidenceOperation } from './types/tezos/operations/DoubleBakingEvidence'
-import { TezosBlockHeader } from './types/tezos/TezosBlockHeader'
-import { TezosDoubleEndorsementEvidenceOperation } from './types/tezos/operations/DoubleEndorsementEvidence'
-import { TezosEndorsementOperation } from './types/tezos/operations/Endorsement'
-import { TezosOriginationOperation } from './types/tezos/operations/Origination'
-import { TezosProposalOperation } from './types/tezos/operations/Proposal'
-import { TezosRevealOperation } from './types/tezos/operations/Reveal'
-import { TezosSeedNonceRevelationOperation } from './types/tezos/operations/SeedNonceRevelation'
-import { TezosTransactionOperation } from './types/tezos/operations/Transaction'
-import { MichelineMichelsonV1Expression } from './types/tezos/MichelineMichelsonV1Expression'
-import { MichelsonPrimitives } from './types/tezos/MichelsonPrimitives'
-import { TezosTransactionParameters } from './types/tezos/TezosTransactionParameters'
+import { MavrykBaseOperation } from './types/mavryk/MavrykBaseOperation'
+import { MavrykOperationType } from './types/mavryk/OperationTypes'
+import { MavrykActivateAccountOperation } from './types/mavryk/operations/ActivateAccount'
+import { MavrykBallotOperation } from './types/mavryk/operations/Ballot'
+import { MavrykDelegationOperation } from './types/mavryk/operations/Delegation'
+import { MavrykDoubleBakingEvidenceOperation } from './types/mavryk/operations/DoubleBakingEvidence'
+import { MavrykBlockHeader } from './types/mavryk/MavrykBlockHeader'
+import { MavrykDoubleEndorsementEvidenceOperation } from './types/mavryk/operations/DoubleEndorsementEvidence'
+import { MavrykEndorsementOperation } from './types/mavryk/operations/Endorsement'
+import { MavrykOriginationOperation } from './types/mavryk/operations/Origination'
+import { MavrykProposalOperation } from './types/mavryk/operations/Proposal'
+import { MavrykRevealOperation } from './types/mavryk/operations/Reveal'
+import { MavrykSeedNonceRevelationOperation } from './types/mavryk/operations/SeedNonceRevelation'
+import { MavrykTransactionOperation } from './types/mavryk/operations/Transaction'
+import { MichelineMichelsonV1Expression } from './types/mavryk/MichelineMichelsonV1Expression'
+import { MichelsonPrimitives } from './types/mavryk/MichelsonPrimitives'
+import { MavrykTransactionParameters } from './types/mavryk/MavrykTransactionParameters'
 import { Origin } from './types/Origin'
 import { AccountInfo, AccountIdentifier } from './types/AccountInfo'
 import { EncryptedExtensionMessage, ExtensionMessage } from './types/ExtensionMessage'
 import { ExtensionMessageTarget } from './types/ExtensionMessageTarget'
-import { TezosOperation } from './types/tezos/TezosOperation'
+import { MavrykOperation } from './types/mavryk/MavrykOperation'
 import { BeaconErrorType } from './types/BeaconErrorType'
 import { ErrorResponse } from './types/beacon/messages/ErrorResponse'
 import { TransportStatus } from './types/transport/TransportStatus'
@@ -105,26 +105,26 @@ import { PermissionInfo } from './types/PermissionInfo'
 import { ConnectionContext } from './types/ConnectionContext'
 import { Threshold } from './types/beacon/Threshold'
 import {
-  PartialTezosTransactionOperation,
-  PartialTezosOperation,
-  PartialTezosDelegationOperation,
-  PartialTezosOriginationOperation,
-  PartialTezosRevealOperation,
-  PartialTezosSmartRollupOriginateOperation,
-  PartialTezosSmartRollupAddMessagesOperation,
-  PartialTezosSmartRollupExecuteOutboxMessageOperation,
-  PartialTezosSmartRollupPublishOperation,
-  PartialTezosSmartRollupCementOperation,
-  PartialTezosSmartRollupRecoverBondOperation,
-  PartialTezosSmartRollupRefuteOperation,
-  PartialTezosSmartRollupTimeoutOperation,
-  PartialTezosDalPublishCommitmentOperation,
-  PartialTezosIncreasePaidStorageOperation,
-  PartialTezosRegisterGlobalConstantOperation,
-  PartialTezosTransferTicketOperation,
-  PartialTezosUpdateConsensusKeyOperation,
-  PartialTezosSetDepositsLimitOperation
-} from './types/tezos/PartialTezosOperation'
+  PartialMavrykTransactionOperation,
+  PartialMavrykOperation,
+  PartialMavrykDelegationOperation,
+  PartialMavrykOriginationOperation,
+  PartialMavrykRevealOperation,
+  PartialMavrykSmartRollupOriginateOperation,
+  PartialMavrykSmartRollupAddMessagesOperation,
+  PartialMavrykSmartRollupExecuteOutboxMessageOperation,
+  PartialMavrykSmartRollupPublishOperation,
+  PartialMavrykSmartRollupCementOperation,
+  PartialMavrykSmartRollupRecoverBondOperation,
+  PartialMavrykSmartRollupRefuteOperation,
+  PartialMavrykSmartRollupTimeoutOperation,
+  PartialMavrykDalPublishCommitmentOperation,
+  PartialMavrykIncreasePaidStorageOperation,
+  PartialMavrykRegisterGlobalConstantOperation,
+  PartialMavrykTransferTicketOperation,
+  PartialMavrykUpdateConsensusKeyOperation,
+  PartialMavrykSetDepositsLimitOperation
+} from './types/mavryk/PartialMavrykOperation'
 import { ExtendedPeerInfo, PeerInfo, PeerInfoType } from './types/PeerInfo'
 import { AcknowledgeResponse } from './types/beacon/messages/AcknowledgeResponse'
 import { DisconnectMessage } from './types/beacon/messages/DisconnectMessage'
@@ -154,30 +154,30 @@ import { Extension } from './types/Extension'
 import { PermissionEntity } from './types/PermissionEntity'
 import { WalletInfo } from './types/WalletInfo'
 import { ChangeAccountRequest } from './types/beacon/messages/ChangeAccountRequest'
-import { TezosAttestationOperation } from './types/tezos/operations/Attestation'
-import { TezosAttestationWithSlotOperation } from './types/tezos/operations/AttestationWithSlot'
-import { TezosDoubleAttestationEvidenceOperation } from './types/tezos/operations/DoubleAttestationEvidence'
-import { TezosDoublePreEndorsementEvidenceOperation } from './types/tezos/operations/DoublePreEndorsementEvidence'
-import { TezosDrainDelegateOperation } from './types/tezos/operations/DrainDelegate'
-import { TezosEndorsementWithSlotOperation } from './types/tezos/operations/EndorsementWithSlot'
-import { TezosFailingNoopOperation } from './types/tezos/operations/FailingNoop'
-import { TezosIncreasePaidStorageOperation } from './types/tezos/operations/IncreasePaidStorage'
-import { TezosPreAttestationOperation } from './types/tezos/operations/PreAttestation'
-import { TezosRegisterGlobalConstantOperation } from './types/tezos/operations/RegisterGlobalConstant'
-import { TezosSetDepositsLimitOperation } from './types/tezos/operations/SetDepositsLimit'
-import { TezosSmartRollupAddMessagesOperation } from './types/tezos/operations/SmartRollupAddMessages'
-import { TezosSmartRollupExecuteOutboxMessageOperation } from './types/tezos/operations/SmartRollupExecuteOutboxMessage'
-import { TezosSmartRollupPublishOperation } from './types/tezos/operations/SmartRollupPublish'
-import { TezosSmartRollupRecoverBondOperation } from './types/tezos/operations/SmartRollupRecoverBond'
-import { TezosSmartRollupRefuteOperation } from './types/tezos/operations/SmartRollupRefute'
-import { TezosSmartRollupTimeoutOperation } from './types/tezos/operations/SmartRollupTimeout'
-import { TezosTransferTicketOperation } from './types/tezos/operations/TransferTicket'
-import { TezosUpdateConsensusKeyOperation } from './types/tezos/operations/UpdateConsensusKey'
-import { TezosVdfRevelationOperation } from './types/tezos/operations/VdfRevelation'
-import { TezosDoublePreAttestationEvidenceOperation } from './types/tezos/operations/DoublePreAttestationEvidence'
-import { TezosSmartRollupCementOperation } from './types/tezos/operations/SmartRollupCement'
-import { TezosSmartRollupOriginateOperation } from './types/tezos/operations/SmartRollupOriginate'
-import { TezosDalPublishCommitmentOperation } from './types/tezos/operations/DalPublishCommitment'
+import { MavrykAttestationOperation } from './types/mavryk/operations/Attestation'
+import { MavrykAttestationWithSlotOperation } from './types/mavryk/operations/AttestationWithSlot'
+import { MavrykDoubleAttestationEvidenceOperation } from './types/mavryk/operations/DoubleAttestationEvidence'
+import { MavrykDoublePreEndorsementEvidenceOperation } from './types/mavryk/operations/DoublePreEndorsementEvidence'
+import { MavrykDrainDelegateOperation } from './types/mavryk/operations/DrainDelegate'
+import { MavrykEndorsementWithSlotOperation } from './types/mavryk/operations/EndorsementWithSlot'
+import { MavrykFailingNoopOperation } from './types/mavryk/operations/FailingNoop'
+import { MavrykIncreasePaidStorageOperation } from './types/mavryk/operations/IncreasePaidStorage'
+import { MavrykPreAttestationOperation } from './types/mavryk/operations/PreAttestation'
+import { MavrykRegisterGlobalConstantOperation } from './types/mavryk/operations/RegisterGlobalConstant'
+import { MavrykSetDepositsLimitOperation } from './types/mavryk/operations/SetDepositsLimit'
+import { MavrykSmartRollupAddMessagesOperation } from './types/mavryk/operations/SmartRollupAddMessages'
+import { MavrykSmartRollupExecuteOutboxMessageOperation } from './types/mavryk/operations/SmartRollupExecuteOutboxMessage'
+import { MavrykSmartRollupPublishOperation } from './types/mavryk/operations/SmartRollupPublish'
+import { MavrykSmartRollupRecoverBondOperation } from './types/mavryk/operations/SmartRollupRecoverBond'
+import { MavrykSmartRollupRefuteOperation } from './types/mavryk/operations/SmartRollupRefute'
+import { MavrykSmartRollupTimeoutOperation } from './types/mavryk/operations/SmartRollupTimeout'
+import { MavrykTransferTicketOperation } from './types/mavryk/operations/TransferTicket'
+import { MavrykUpdateConsensusKeyOperation } from './types/mavryk/operations/UpdateConsensusKey'
+import { MavrykVdfRevelationOperation } from './types/mavryk/operations/VdfRevelation'
+import { MavrykDoublePreAttestationEvidenceOperation } from './types/mavryk/operations/DoublePreAttestationEvidence'
+import { MavrykSmartRollupCementOperation } from './types/mavryk/operations/SmartRollupCement'
+import { MavrykSmartRollupOriginateOperation } from './types/mavryk/operations/SmartRollupOriginate'
+import { MavrykDalPublishCommitmentOperation } from './types/mavryk/operations/DalPublishCommitment'
 
 export * from './types/AnalyticsInterface'
 
@@ -187,73 +187,73 @@ export * from './types/ui'
 
 export * from './types/Regions'
 
-// Tezos
+// Mavryk
 export {
-  TezosBaseOperation,
-  TezosOperationType,
-  TezosBlockHeader,
+  MavrykBaseOperation,
+  MavrykOperationType,
+  MavrykBlockHeader,
   MichelineMichelsonV1Expression,
   MichelsonPrimitives,
-  TezosTransactionParameters,
-  TezosOperation
+  MavrykTransactionParameters,
+  MavrykOperation
 }
 
 // Mavryk Operations
 export {
-  TezosActivateAccountOperation,
-  TezosBallotOperation,
-  TezosDelegationOperation,
-  TezosDoubleBakingEvidenceOperation,
-  TezosDoubleEndorsementEvidenceOperation,
-  TezosEndorsementOperation,
-  TezosOriginationOperation,
-  TezosProposalOperation,
-  TezosRevealOperation,
-  TezosSeedNonceRevelationOperation,
-  TezosTransactionOperation,
-  PartialTezosOperation,
-  PartialTezosTransactionOperation,
-  PartialTezosDelegationOperation,
-  PartialTezosOriginationOperation,
-  PartialTezosRevealOperation,
-  PartialTezosSmartRollupOriginateOperation,
-  PartialTezosSmartRollupAddMessagesOperation,
-  PartialTezosSmartRollupExecuteOutboxMessageOperation,
-  PartialTezosSmartRollupPublishOperation,
-  PartialTezosSmartRollupCementOperation,
-  PartialTezosSmartRollupRecoverBondOperation,
-  PartialTezosSmartRollupRefuteOperation,
-  PartialTezosSmartRollupTimeoutOperation,
-  PartialTezosDalPublishCommitmentOperation,
-  PartialTezosRegisterGlobalConstantOperation,
-  PartialTezosTransferTicketOperation,
-  PartialTezosIncreasePaidStorageOperation,
-  PartialTezosUpdateConsensusKeyOperation,
-  PartialTezosSetDepositsLimitOperation,
-  TezosAttestationOperation,
-  TezosPreAttestationOperation,
-  TezosSetDepositsLimitOperation,
-  TezosDoublePreAttestationEvidenceOperation,
-  TezosDoublePreEndorsementEvidenceOperation,
-  TezosAttestationWithSlotOperation,
-  TezosEndorsementWithSlotOperation,
-  TezosDoubleAttestationEvidenceOperation,
-  TezosFailingNoopOperation,
-  TezosRegisterGlobalConstantOperation,
-  TezosTransferTicketOperation,
-  TezosIncreasePaidStorageOperation,
-  TezosUpdateConsensusKeyOperation,
-  TezosDrainDelegateOperation,
-  TezosVdfRevelationOperation,
-  TezosSmartRollupOriginateOperation,
-  TezosSmartRollupAddMessagesOperation,
-  TezosSmartRollupExecuteOutboxMessageOperation,
-  TezosSmartRollupPublishOperation,
-  TezosSmartRollupCementOperation,
-  TezosSmartRollupRecoverBondOperation,
-  TezosSmartRollupRefuteOperation,
-  TezosSmartRollupTimeoutOperation,
-  TezosDalPublishCommitmentOperation
+  MavrykActivateAccountOperation,
+  MavrykBallotOperation,
+  MavrykDelegationOperation,
+  MavrykDoubleBakingEvidenceOperation,
+  MavrykDoubleEndorsementEvidenceOperation,
+  MavrykEndorsementOperation,
+  MavrykOriginationOperation,
+  MavrykProposalOperation,
+  MavrykRevealOperation,
+  MavrykSeedNonceRevelationOperation,
+  MavrykTransactionOperation,
+  PartialMavrykOperation,
+  PartialMavrykTransactionOperation,
+  PartialMavrykDelegationOperation,
+  PartialMavrykOriginationOperation,
+  PartialMavrykRevealOperation,
+  PartialMavrykSmartRollupOriginateOperation,
+  PartialMavrykSmartRollupAddMessagesOperation,
+  PartialMavrykSmartRollupExecuteOutboxMessageOperation,
+  PartialMavrykSmartRollupPublishOperation,
+  PartialMavrykSmartRollupCementOperation,
+  PartialMavrykSmartRollupRecoverBondOperation,
+  PartialMavrykSmartRollupRefuteOperation,
+  PartialMavrykSmartRollupTimeoutOperation,
+  PartialMavrykDalPublishCommitmentOperation,
+  PartialMavrykRegisterGlobalConstantOperation,
+  PartialMavrykTransferTicketOperation,
+  PartialMavrykIncreasePaidStorageOperation,
+  PartialMavrykUpdateConsensusKeyOperation,
+  PartialMavrykSetDepositsLimitOperation,
+  MavrykAttestationOperation,
+  MavrykPreAttestationOperation,
+  MavrykSetDepositsLimitOperation,
+  MavrykDoublePreAttestationEvidenceOperation,
+  MavrykDoublePreEndorsementEvidenceOperation,
+  MavrykAttestationWithSlotOperation,
+  MavrykEndorsementWithSlotOperation,
+  MavrykDoubleAttestationEvidenceOperation,
+  MavrykFailingNoopOperation,
+  MavrykRegisterGlobalConstantOperation,
+  MavrykTransferTicketOperation,
+  MavrykIncreasePaidStorageOperation,
+  MavrykUpdateConsensusKeyOperation,
+  MavrykDrainDelegateOperation,
+  MavrykVdfRevelationOperation,
+  MavrykSmartRollupOriginateOperation,
+  MavrykSmartRollupAddMessagesOperation,
+  MavrykSmartRollupExecuteOutboxMessageOperation,
+  MavrykSmartRollupPublishOperation,
+  MavrykSmartRollupCementOperation,
+  MavrykSmartRollupRecoverBondOperation,
+  MavrykSmartRollupRefuteOperation,
+  MavrykSmartRollupTimeoutOperation,
+  MavrykDalPublishCommitmentOperation
 }
 
 // Beacon

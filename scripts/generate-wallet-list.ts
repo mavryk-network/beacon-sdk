@@ -17,18 +17,18 @@ import {
 } from './blockchains/substrate'
 
 import {
-  tezosDesktopList,
-  tezosExtensionList,
-  tezosIosList,
-  tezosWebList
-} from './blockchains/tezos'
+  mavrykDesktopList,
+  mavrykExtensionList,
+  mavrykIosList,
+  mavrykWebList
+} from './blockchains/mavryk'
 
 import {
-  tezosSaplingDesktopList,
-  tezosSaplingExtensionList,
-  tezosSaplingIosList,
-  tezosSaplingWebList
-} from './blockchains/tezos-sapling'
+  mavrykSaplingDesktopList,
+  mavrykSaplingExtensionList,
+  mavrykSaplingIosList,
+  mavrykSaplingWebList
+} from './blockchains/mavryk-sapling'
 
 const resizeImg = require('resize-img')
 
@@ -154,19 +154,19 @@ const generateForBlockchains = (
 }
 
 generateForBlockchains(
-  'beacon-blockchain-tezos',
-  tezosExtensionList,
-  tezosDesktopList,
-  tezosWebList,
-  tezosIosList
+  'beacon-blockchain-mavryk',
+  mavrykExtensionList,
+  mavrykDesktopList,
+  mavrykWebList,
+  mavrykIosList
 )
 
 generateForBlockchains(
-  'beacon-blockchain-tezos-sapling',
-  tezosSaplingExtensionList,
-  tezosSaplingDesktopList,
-  tezosSaplingWebList,
-  tezosSaplingIosList
+  'beacon-blockchain-mavryk-sapling',
+  mavrykSaplingExtensionList,
+  mavrykSaplingDesktopList,
+  mavrykSaplingWebList,
+  mavrykSaplingIosList
 )
 
 generateForBlockchains(
@@ -179,8 +179,8 @@ generateForBlockchains(
 
 generateForBlockchains(
   'beacon-ui',
-  tezosExtensionList,
-  tezosDesktopList,
-  tezosWebList,
-  tezosIosList
+  mavrykExtensionList,
+  mavrykDesktopList,
+  mavrykWebList,
+  mavrykIosList
 )

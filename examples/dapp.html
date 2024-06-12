@@ -293,7 +293,7 @@
         client.requestOperation({
           operationDetails: [
             {
-              kind: beacon.TezosOperationType.DELEGATION,
+              kind: beacon.MavrykOperationType.DELEGATION,
               delegate: 'mv1Qvep3UVZdGTV6cMQ9MHGexLNQ6oaNZmhj'
             }
           ]
@@ -306,7 +306,7 @@
           return client.requestOperation({
             operationDetails: [
               {
-                kind: beacon.TezosOperationType.TRANSACTION,
+                kind: beacon.MavrykOperationType.TRANSACTION,
                 destination: activeAccount?.address ?? '',
                 amount: '1'
               }
@@ -327,7 +327,7 @@
             const result = await client.requestOperation({
               operationDetails: [
                 {
-                  kind: beacon.TezosOperationType.TRANSACTION,
+                  kind: beacon.MavrykOperationType.TRANSACTION,
                   amount: '0',
                   destination: TZ_BUTTON_COLORS_CONTRACT,
                   parameters: {
@@ -623,7 +623,7 @@
           .requestOperation({
             operationDetails: [
               {
-                kind: beacon.TezosOperationType.TRANSACTION,
+                kind: beacon.MavrykOperationType.TRANSACTION,
                 amount: '0',
                 destination: 'KT1RxKJyi48W3bZR8HErRiisXZQw19HwLGWj',
                 parameters: {

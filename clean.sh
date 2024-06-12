@@ -2,8 +2,8 @@
 # rm -rf ./node_modules
 
 # rm -rf ./packages/beacon-blockchain-substrate/dist
-# rm -rf ./packages/beacon-blockchain-tezos/dist
-# rm -rf ./packages/beacon-blockchain-tezos-sapling/dist
+# rm -rf ./packages/beacon-blockchain-mavryk/dist
+# rm -rf ./packages/beacon-blockchain-mavryk-sapling/dist
 # rm -rf ./packages/beacon-core/dist
 # rm -rf ./packages/beacon-dapp/dist
 # rm -rf ./packages/beacon-sdk/dist
@@ -15,8 +15,8 @@
 # rm -rf ./packages/beacon-wallet/dist
 
 rm -rf ./packages/beacon-blockchain-substrate/node_modules
-rm -rf ./packages/beacon-blockchain-tezos/node_modules
-rm -rf ./packages/beacon-blockchain-tezos-sapling/node_modules
+rm -rf ./packages/beacon-blockchain-mavryk/node_modules
+rm -rf ./packages/beacon-blockchain-mavryk-sapling/node_modules
 rm -rf ./packages/beacon-core/node_modules
 rm -rf ./packages/beacon-dapp/node_modules
 rm -rf ./packages/beacon-sdk/node_modules

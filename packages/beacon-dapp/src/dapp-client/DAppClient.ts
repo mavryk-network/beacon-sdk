@@ -2447,7 +2447,7 @@ export class DAppClient extends Client {
     const publicKey = bs58check.encode(Buffer.concat([prefix, Buffer.from(rawPublicKey)]))
 
     const constructedString = [
-      'Tezos Signed Message: ',
+      'Mavryk Signed Message: ',
       recipient,
       title,
       body,
