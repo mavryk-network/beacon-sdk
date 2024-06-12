@@ -9,6 +9,7 @@ export class TzktBlockExplorer extends BlockExplorer {
       [NetworkType.WEEKLYNET]: 'https://weeklynet.tzkt.io',
       [NetworkType.DAILYNET]: 'https://dailynet.api.mavryk.network',
       [NetworkType.ATLASNET]: 'https://atlasnet.api.mavryk.network',
+      [NetworkType.PARISNET]: 'https://parisnet.api.mavryk.network',
       [NetworkType.CUSTOM]: 'https://atlasnet.api.mavryk.network',
     }
   ) {

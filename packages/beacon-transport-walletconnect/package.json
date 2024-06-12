@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-transport-walletconnect",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "This package contains methods to facilitate communication over the WalletConnect network.",
   "author": "Papers AG",
   "homepage": "https://walletbeacon.io",
@@ -34,9 +34,9 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-core": "^4.2.1",
-    "@mavrykdynamics/beacon-types": "^4.2.1",
-    "@mavrykdynamics/beacon-utils": "^4.2.1",
+    "@mavrykdynamics/beacon-core": "^4.2.2",
+    "@mavrykdynamics/beacon-types": "^4.2.2",
+    "@mavrykdynamics/beacon-utils": "^4.2.2",
     "@walletconnect/sign-client": "^2.11.2"
   }
 }

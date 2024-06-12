@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-blockchain-tezos-sapling",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "This package adds support for `tezos-sapling`, the sapling integration on the Tezos blockchain. It can be used in combination with the `@mavrykdynamics/beacon-dapp` or `@mavrykdynamics/beacon-wallet` packages.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
   "homepage": "https://walletbeacon.io",
@@ -34,7 +34,7 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-types": "^4.2.1",
-    "@mavrykdynamics/beacon-ui": "^4.2.1"
+    "@mavrykdynamics/beacon-types": "^4.2.2",
+    "@mavrykdynamics/beacon-ui": "^4.2.2"
   }
 }
