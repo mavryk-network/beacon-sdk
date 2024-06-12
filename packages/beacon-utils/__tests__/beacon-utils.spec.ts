@@ -16,14 +16,14 @@ chai.use(chaiAsPromised)
 const expect = chai.expect
 
 describe(`Crypto`, () => {
-  describe(`tz1`, () => {
+  describe(`mv1`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should convert plain public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
           '444e1f4ab90c304a5ac003d367747aab63815f583ff2330ce159d12c1ecceba1'
         )
 
-        expect(address).to.deep.equal('tz1d75oB6T4zUMexzkr5WscGktZ1Nss1JrT7')
+        expect(address).to.deep.equal('mv1RUZ6mQpNM3dSC95QvkhJHuuQywGJfQRmB')
       })
 
       it(`should edpk public key to address`, async () => {
@@ -31,7 +31,7 @@ describe(`Crypto`, () => {
           'edpkuxyLpwfawtWCazyBJQwpWtD9Ehs1KpnHzyNLyvtdPSf16DKA8A'
         )
 
-        expect(address).to.deep.equal('tz1ZgmtH7SbhWmrSk6cpywkwh2uhncn9YgeA')
+        expect(address).to.deep.equal('mv1N4FBsRou463dftRBgDmSxr3mgM1JKCHs1')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
@@ -47,14 +47,14 @@ describe(`Crypto`, () => {
     })
   })
 
-  describe(`tz2`, () => {
+  describe(`mv2`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should sppk public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
           'sppk7bWyHyv5QStTzJmFkeH5Caf6WKoDHDx64AxEtpBwwxgZu6vpmjU'
         )
 
-        expect(address).to.deep.equal('tz28KhxeXtHFqhMwrb1KUfmRS6j9vCu1ZKNH')
+        expect(address).to.deep.equal('mv2L2nFM9YHnsqxc8zbb3owZruDdjY8b5bfY')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
@@ -70,14 +70,14 @@ describe(`Crypto`, () => {
     })
   })
 
-  describe(`tz3`, () => {
+  describe(`mv3`, () => {
     describe('getAddressFromPublicKey', () => {
       it(`should p2pk public key to address`, async () => {
         const address: string = await getAddressFromPublicKey(
           'p2pk67wVncLFS1DQDm2gVR45sYCzQSXTtqn3bviNYXVCq6WRoqtxHXL'
         )
 
-        expect(address).to.deep.equal('tz3RDC3Jdn4j15J7bBHZd29EUee9gVB1CxD9')
+        expect(address).to.deep.equal('mv3DafLtx9N5aM5LjVrQrqqFdfW8EsbUjxaK')
       })
 
       it(`should throw an error if an invalid public key is used`, async () => {
@@ -131,7 +131,7 @@ describe(`Crypto`, () => {
   })
 
   it(`should validate valid addresses`, async () => {
-    const address = 'tz1YZkgk9jfxcBTKWvaFTuh5fPxYEueQGDT8'
+    const address = 'mv1VYv4LkHo5BGn9RdWHgEqmaU2xmQctA7Mt'
 
     const isValid = isValidAddress(address)
 

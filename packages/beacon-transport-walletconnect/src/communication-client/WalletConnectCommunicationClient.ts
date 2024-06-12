@@ -5,7 +5,7 @@ import {
   ClientEvents,
   Logger,
   WCStorage
-} from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-core'
 import Client from '@walletconnect/sign-client'
 import { ProposalTypes, SessionTypes, SignClientTypes } from '@walletconnect/types'
 import { getSdkError } from '@walletconnect/utils'
@@ -44,8 +44,8 @@ import {
   SignPayloadResponseInput,
   StorageKey,
   TransportType
-} from '@airgap/beacon-types'
-import { generateGUID, getAddressFromPublicKey } from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-types'
+import { generateGUID, getAddressFromPublicKey } from '@mavrykdynamics/beacon-utils'
 
 const TEZOS_PLACEHOLDER = 'tezos'
 const logger = new Logger('WalletConnectCommunicationClient')
@@ -450,7 +450,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
   }
 
   /**
-   * @description Once the session is established, send Tezos operations to be approved, signed and inject by the wallet.
+   * @description Once the session is established, send Mavryk operations to be approved, signed and inject by the wallet.
    * @error MissingRequiredScope is thrown if permission to send operation was not granted
    */
   async sendOperations(operationRequest: OperationRequest) {
@@ -1220,7 +1220,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
   }
   /**
    * @description Access the active network
-   * @error ActiveNetworkUnspecified thorwn when there are multiple Tezos networks in the session and none is set as the active one
+   * @error ActiveNetworkUnspecified thorwn when there are multiple Mavryk networks in the session and none is set as the active one
    */
   getActiveNetwork() {
     if (!this.activeNetwork) {
@@ -1337,7 +1337,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
   /**
    * @description Access the public key hash of the active account
-   * @error ActiveAccountUnspecified thrown when there are multiple Tezos account in the session and none is set as the active one
+   * @error ActiveAccountUnspecified thrown when there are multiple Mavryk account in the session and none is set as the active one
    */
   async getPKH() {
     if (!this.activeAccount) {

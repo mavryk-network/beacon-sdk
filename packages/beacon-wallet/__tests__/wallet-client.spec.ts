@@ -15,7 +15,7 @@ import {
   PermissionInfo,
   PermissionResponseInput,
   BeaconResponseInputMessage
-} from '@airgap/beacon-types'
+} from '@mavrykdynamics/beacon-types'
 
 import {
   AppMetadataManager,
@@ -25,9 +25,9 @@ import {
   LocalStorage,
   getSenderId,
   Serializer
-} from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-core'
 
-import { P2PTransport } from '@airgap/beacon-transport-matrix'
+import { P2PTransport } from '@mavrykdynamics/beacon-transport-matrix'
 import { WalletClient } from '../src'
 
 // use chai-as-promised plugin
@@ -252,7 +252,7 @@ describe(`WalletClient`, () => {
       senderId: await getSenderId(peer1.publicKey),
       appMetadata: { senderId: await getSenderId(peer1.publicKey), name: 'name1' },
       website: 'website1',
-      address: 'tz1',
+      address: 'mv1',
       publicKey: 'publicKey1',
       network: { type: NetworkType.MAINNET },
       scopes: [PermissionScope.SIGN],
@@ -263,7 +263,7 @@ describe(`WalletClient`, () => {
       senderId: await getSenderId(peer1.publicKey),
       appMetadata: { senderId: await getSenderId(peer1.publicKey), name: 'name1' },
       website: 'website2',
-      address: 'tz1',
+      address: 'mv1',
       publicKey: 'publicKey2',
       network: { type: NetworkType.MAINNET },
       scopes: [PermissionScope.SIGN],

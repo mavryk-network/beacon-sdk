@@ -3,7 +3,7 @@ import * as chaiAsPromised from 'chai-as-promised'
 import 'mocha'
 
 import { FileStorage, writeLocalFile } from '../../../../test/test-utils/FileStorage'
-import { NetworkType, Origin, Storage, StorageKey } from '@airgap/beacon-types'
+import { NetworkType, Origin, Storage, StorageKey } from '@mavrykdynamics/beacon-types'
 import { migrate } from '../../src/migrations/migrations'
 import { AccountInfoOld, P2PPairingRequestOld } from '../../src/migrations/migrate-0.7.0'
 import { SDK_VERSION } from '../../src'
@@ -28,7 +28,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o1'
       },
-      address: 'tz1',
+      address: 'mv1',
       pubkey: 'pubkey1',
       network: { type: NetworkType.MAINNET },
       scopes: [],
@@ -42,7 +42,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o2'
       },
-      address: 'tz2',
+      address: 'mv2',
       pubkey: 'pubkey2',
       network: { type: NetworkType.MAINNET },
       scopes: [],
@@ -56,7 +56,7 @@ describe(`Migrations`, () => {
         type: Origin.P2P,
         id: 'o3'
       },
-      address: 'tz3',
+      address: 'mv3',
       pubkey: 'pubkey3',
       network: { type: NetworkType.MAINNET },
       scopes: [],

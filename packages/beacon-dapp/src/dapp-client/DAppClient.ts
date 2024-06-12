@@ -76,7 +76,7 @@ import {
   // EncryptPayloadResponseOutput,
   // EncryptPayloadResponse,
   // EncryptPayloadRequest
-} from '@airgap/beacon-types'
+} from '@mavrykdynamics/beacon-types'
 import {
   Client,
   Transport,
@@ -91,7 +91,7 @@ import {
   StorageValidator,
   SDK_VERSION,
   IndexedDBStorage
-} from '@airgap/beacon-core'
+} from '@mavrykdynamics/beacon-core'
 import {
   getAddressFromPublicKey,
   ExposedPromise,
@@ -101,17 +101,17 @@ import {
   CONTRACT_PREFIX,
   prefixPublicKey,
   isValidAddress
-} from '@airgap/beacon-utils'
+} from '@mavrykdynamics/beacon-utils'
 import { messageEvents } from '../beacon-message-events'
 import { BlockExplorer } from '../utils/block-explorer'
 import { TzktBlockExplorer } from '../utils/tzkt-blockexplorer'
 
 import { DAppClientOptions } from './DAppClientOptions'
-import { BeaconEventHandler } from '@airgap/beacon-dapp'
+import { BeaconEventHandler } from '@mavrykdynamics/beacon-dapp'
 import { DappPostMessageTransport } from '../transports/DappPostMessageTransport'
 import { DappP2PTransport } from '../transports/DappP2PTransport'
 import { DappWalletConnectTransport } from '../transports/DappWalletConnectTransport'
-import { PostMessageTransport } from '@airgap/beacon-transport-postmessage'
+import { PostMessageTransport } from '@mavrykdynamics/beacon-transport-postmessage'
 import {
   AlertButton,
   closeToast,
@@ -130,8 +130,8 @@ import {
   isMobileOS,
   isIOS,
   currentOS
-} from '@airgap/beacon-ui'
-import { WalletConnectTransport } from '@airgap/beacon-transport-walletconnect'
+} from '@mavrykdynamics/beacon-ui'
+import { WalletConnectTransport } from '@mavrykdynamics/beacon-transport-walletconnect'
 
 const logger = new Logger('DAppClient')
 

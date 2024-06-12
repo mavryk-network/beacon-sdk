@@ -1,5 +1,5 @@
-import { IndexedDBStorage, SDK_VERSION } from '@airgap/beacon-core'
-import { StorageKey } from '@airgap/beacon-types'
+import { IndexedDBStorage, SDK_VERSION } from '@mavrykdynamics/beacon-core'
+import { StorageKey } from '@mavrykdynamics/beacon-types'
 import { For, createEffect, createSignal } from 'solid-js'
 import styles from './styles.css'
 import { currentBrowser, currentOS } from '../../utils/platform'

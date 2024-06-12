@@ -1,5 +1,5 @@
 import { desktopList, extensionList, iOSList, webList } from '../ui/alert/wallet-lists'
-import { DesktopApp, App, ExtensionApp, WebApp } from '@airgap/beacon-types'
+import { DesktopApp, App, ExtensionApp, WebApp } from '@mavrykdynamics/beacon-types'
 
 // export interface PairingProps {}
 
@@ -14,7 +14,7 @@ import { DesktopApp, App, ExtensionApp, WebApp } from '@airgap/beacon-types'
 // export default Pairing
 
 /**
- * Initialize with tezos wallets for backwards compatibility
+ * Initialize with mavryk wallets for backwards compatibility
  */
 let localDesktopList: DesktopApp[] = desktopList
 let localExtensionList: ExtensionApp[] = extensionList

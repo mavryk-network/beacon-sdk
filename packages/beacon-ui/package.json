@@ -1,5 +1,5 @@
 {
-  "name": "@airgap/beacon-ui",
+  "name": "@mavrykdynamics/beacon-ui",
   "version": "4.2.1",
   "description": "This package contains the UI part (alerts and toasts) of the Beacon SDK.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
@@ -24,20 +24,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airgap-it/beacon-sdk.git"
+    "url": "git+https://github.com/mavryk-network/beacon-sdk.git"
   },
   "scripts": {
     "tsc": "rollup -c && ts-node scripts/server-fix.ts",
     "test": "TS_NODE_PROJECT='tsconfig-cjs.json' nyc mocha --require ts-node/register --require source-map-support/register --full-trace --timeout 40000 ./__tests__/**/**.spec.ts"
   },
   "bugs": {
-    "url": "https://github.com/airgap-it/beacon-sdk/issues"
+    "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@airgap/beacon-core": "4.2.1",
-    "@airgap/beacon-transport-postmessage": "4.2.1",
-    "@airgap/beacon-types": "4.2.1",
-    "@airgap/beacon-utils": "4.2.1",
+    "@mavrykdynamics/beacon-core": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
+    "@mavrykdynamics/beacon-types": "^4.2.1",
+    "@mavrykdynamics/beacon-utils": "^4.2.1",
     "@walletconnect/utils": "2.11.2",
     "qrcode-svg": "^1.1.0",
     "solid-js": "^1.7.11"

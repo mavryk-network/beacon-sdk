@@ -7,7 +7,7 @@ import {
   AccountInfo,
   ProofOfEventChallengeResponse,
   SimulatedProofOfEventChallengeResponse
-} from '@airgap/beacon-types'
+} from '@mavrykdynamics/beacon-types'
 
 /**
  * @category DApp

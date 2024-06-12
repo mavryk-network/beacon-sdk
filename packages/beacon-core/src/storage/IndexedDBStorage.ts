@@ -1,5 +1,5 @@
-import { Storage, StorageKey, StorageKeyReturnType } from '@airgap/beacon-types'
-import { Logger } from '@airgap/beacon-core'
+import { Storage, StorageKey, StorageKeyReturnType } from '@mavrykdynamics/beacon-types'
+import { Logger } from '@mavrykdynamics/beacon-core'
 
 const logger = new Logger('IndexedDBStorage')
 

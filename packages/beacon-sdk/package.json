@@ -1,5 +1,5 @@
 {
-  "name": "@airgap/beacon-sdk",
+  "name": "@mavrykdynamics/beacon-sdk",
   "version": "4.2.1",
   "description": "The `beacon-sdk` simplifies and abstracts the communication between dApps and wallets over different transport layers.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
@@ -25,25 +25,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airgap-it/beacon-sdk.git"
+    "url": "git+https://github.com/mavryk-network/beacon-sdk.git"
   },
   "scripts": {
     "tsc": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "test": "TS_NODE_PROJECT='tsconfig-cjs.json' nyc mocha --require ts-node/register --require source-map-support/register --full-trace --timeout 40000 ./__tests__/**/**.spec.ts"
   },
   "bugs": {
-    "url": "https://github.com/airgap-it/beacon-sdk/issues"
+    "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@airgap/beacon-blockchain-substrate": "4.2.1",
-    "@airgap/beacon-blockchain-tezos": "4.2.1",
-    "@airgap/beacon-core": "4.2.1",
-    "@airgap/beacon-dapp": "4.2.1",
-    "@airgap/beacon-transport-matrix": "4.2.1",
-    "@airgap/beacon-transport-postmessage": "4.2.1",
-    "@airgap/beacon-types": "4.2.1",
-    "@airgap/beacon-ui": "4.2.1",
-    "@airgap/beacon-utils": "4.2.1",
-    "@airgap/beacon-wallet": "4.2.1"
+    "@mavrykdynamics/beacon-blockchain-substrate": "^4.2.1",
+    "@mavrykdynamics/beacon-blockchain-tezos": "^4.2.1",
+    "@mavrykdynamics/beacon-core": "^4.2.1",
+    "@mavrykdynamics/beacon-dapp": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-matrix": "^4.2.1",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
+    "@mavrykdynamics/beacon-types": "^4.2.1",
+    "@mavrykdynamics/beacon-ui": "^4.2.1",
+    "@mavrykdynamics/beacon-utils": "^4.2.1",
+    "@mavrykdynamics/beacon-wallet": "^4.2.1"
   }
 }

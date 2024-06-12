@@ -155,20 +155,20 @@ export async function openCryptobox(
  */
 export async function getAddressFromPublicKey(publicKey: string): Promise<string> {
   const prefixes = {
-    // tz1...
+    // mv1...
     edpk: {
       length: 54,
-      prefix: Buffer.from(new Uint8Array([6, 161, 159]))
+      prefix: Buffer.from(new Uint8Array([5, 186, 196]))
     },
-    // tz2...
+    // mv2...
     sppk: {
       length: 55,
-      prefix: Buffer.from(new Uint8Array([6, 161, 161]))
+      prefix: Buffer.from(new Uint8Array([5, 186, 199]))
     },
-    // tz3...
+    // mv3...
     p2pk: {
       length: 55,
-      prefix: Buffer.from(new Uint8Array([6, 161, 164]))
+      prefix: Buffer.from(new Uint8Array([5, 186, 201]))
     }
   }
 
@@ -184,7 +184,8 @@ export async function getAddressFromPublicKey(publicKey: string): Promise<string
       if (publicKey.startsWith(key) && publicKey.length === value.length) {
         prefix = value.prefix
         const decoded = bs58check.decode(publicKey)
-        plainPublicKey = decoded.slice(key.length, decoded.length).toString('hex')
+        const decodedFixed: any = decoded
+        plainPublicKey = decodedFixed.slice(key.length, decoded.length).toString('hex')
         break
       }
     }
@@ -266,7 +267,7 @@ export const signMessage = async (
 }
 
 export const isValidAddress = (address: string): boolean => {
-  const prefixes = ['tz1', 'tz2', 'tz3', 'tz4', 'KT1', 'txr1', 'sr1']
+  const prefixes = ['mv1', 'mv2', 'mv3', 'mv4', 'KT1', 'txr1', 'sr1']
 
   if (!prefixes.some((p) => address.toLowerCase().startsWith(p.toLowerCase()))) {
     return false
