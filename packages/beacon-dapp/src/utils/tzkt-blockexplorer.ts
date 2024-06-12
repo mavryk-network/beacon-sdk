@@ -4,7 +4,7 @@ import { BlockExplorer } from './block-explorer'
 export class TzktBlockExplorer extends BlockExplorer {
   constructor(
     public readonly rpcUrls: { [key in NetworkType]: string } = {
-      [NetworkType.MAINNET]: 'https://tzkt.io',
+      [NetworkType.MAINNET]: 'https://api.mavryk.network',
       [NetworkType.BASENET]: 'https://basenet.api.mavryk.network',
       [NetworkType.WEEKLYNET]: 'https://weeklynet.tzkt.io',
       [NetworkType.DAILYNET]: 'https://dailynet.api.mavryk.network',
