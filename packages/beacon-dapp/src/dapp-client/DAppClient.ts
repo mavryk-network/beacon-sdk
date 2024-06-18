@@ -104,7 +104,7 @@ import {
 } from '@mavrykdynamics/beacon-utils'
 import { messageEvents } from '../beacon-message-events'
 import { BlockExplorer } from '../utils/block-explorer'
-import { TzktBlockExplorer } from '../utils/tzkt-blockexplorer'
+import { MvktBlockExplorer } from '../utils/mvkt-blockexplorer'
 
 import { DAppClientOptions } from './DAppClientOptions'
 import { BeaconEventHandler } from '@mavrykdynamics/beacon-dapp'
@@ -237,7 +237,7 @@ export class DAppClient extends Client {
     this.featuredWallets = config.featuredWallets
 
     this.events = new BeaconEventHandler(config.eventHandlers, config.disableDefaultEvents ?? false)
-    this.blockExplorer = config.blockExplorer ?? new TzktBlockExplorer()
+    this.blockExplorer = config.blockExplorer ?? new MvktBlockExplorer()
     this.network = config.network ?? { type: config.preferredNetwork ?? NetworkType.MAINNET }
     setColorMode(config.colorMode ?? ColorMode.LIGHT)
 
