@@ -184,7 +184,7 @@
           el.innerText = `'time' ${start} ${label}`
           el.setAttribute('style', 'background-color: grey')
           document.getElementById('logger-output').appendChild(el)
-          console.time(label)
+          start ? console.time(label) : console.timeEnd(label)
         }
 
         timeLog(method, ...args) {
@@ -234,7 +234,7 @@
         },
         featuredWallets: ['kukai', 'metamask', 'mavryk'],
         network: {
-          type: beacon.NetworkType.GHOSTNET
+          type: beacon.NetworkType.MAINNET
         },
         enableMetrics: true
         // matrixNodes: ['test.papers.tech', 'test2.papers.tech', 'matrix.papers.tech']
@@ -275,7 +275,8 @@
         })
       }
 
-      client.subscribeToEvent('ACTIVE_ACCOUNT_SET', () => {
+      client.subscribeToEvent('ACTIVE_ACCOUNT_SET', (account) => {
+        console.log('ACTIVE_ACCOUNT_SET received', account)
         updateActiveAccount()
       })
 
@@ -292,7 +293,7 @@
         client.requestOperation({
           operationDetails: [
             {
-              kind: beacon.TezosOperationType.DELEGATION,
+              kind: beacon.MavrykOperationType.DELEGATION,
               delegate: 'mv1Qvep3UVZdGTV6cMQ9MHGexLNQ6oaNZmhj'
             }
           ]
@@ -305,7 +306,7 @@
           return client.requestOperation({
             operationDetails: [
               {
-                kind: beacon.TezosOperationType.TRANSACTION,
+                kind: beacon.MavrykOperationType.TRANSACTION,
                 destination: activeAccount?.address ?? '',
                 amount: '1'
               }
@@ -326,7 +327,7 @@
             const result = await client.requestOperation({
               operationDetails: [
                 {
-                  kind: beacon.TezosOperationType.TRANSACTION,
+                  kind: beacon.MavrykOperationType.TRANSACTION,
                   amount: '0',
                   destination: TZ_BUTTON_COLORS_CONTRACT,
                   parameters: {
@@ -407,7 +408,6 @@
           .disconnect()
           .then(() => console.log('disconnected.'))
           .catch((err) => console.error(err.message))
-
       }
 
       const requestSimulatedProofOfEventChallenge = () => {
@@ -623,7 +623,7 @@
           .requestOperation({
             operationDetails: [
               {
-                kind: beacon.TezosOperationType.TRANSACTION,
+                kind: beacon.MavrykOperationType.TRANSACTION,
                 amount: '0',
                 destination: 'KT1RxKJyi48W3bZR8HErRiisXZQw19HwLGWj',
                 parameters: {

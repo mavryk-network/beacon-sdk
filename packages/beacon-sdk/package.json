@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-sdk",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "The `beacon-sdk` simplifies and abstracts the communication between dApps and wallets over different transport layers.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
   "homepage": "https://walletbeacon.io",
@@ -35,15 +35,15 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-blockchain-substrate": "^4.2.1",
-    "@mavrykdynamics/beacon-blockchain-tezos": "^4.2.1",
-    "@mavrykdynamics/beacon-core": "^4.2.1",
-    "@mavrykdynamics/beacon-dapp": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-matrix": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
-    "@mavrykdynamics/beacon-types": "^4.2.1",
-    "@mavrykdynamics/beacon-ui": "^4.2.1",
-    "@mavrykdynamics/beacon-utils": "^4.2.1",
-    "@mavrykdynamics/beacon-wallet": "^4.2.1"
+    "@mavrykdynamics/beacon-blockchain-substrate": "^4.2.2",
+    "@mavrykdynamics/beacon-blockchain-mavryk": "^4.2.2",
+    "@mavrykdynamics/beacon-core": "^4.2.2",
+    "@mavrykdynamics/beacon-dapp": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-matrix": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.2",
+    "@mavrykdynamics/beacon-types": "^4.2.2",
+    "@mavrykdynamics/beacon-ui": "^4.2.2",
+    "@mavrykdynamics/beacon-utils": "^4.2.2",
+    "@mavrykdynamics/beacon-wallet": "^4.2.2"
   }
 }

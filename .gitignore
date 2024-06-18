@@ -78,12 +78,12 @@ docs
 
 webpack_builds
 
-packages/beacon-blockchain-tezos/src/ui/alert/alert-templates.ts
-packages/beacon-blockchain-tezos/src/ui/alert/wallet-lists.ts
-packages/beacon-blockchain-tezos/src/ui/toast/toast-templates.ts
-packages/beacon-blockchain-tezos-sapling/src/ui/alert/alert-templates.ts
-packages/beacon-blockchain-tezos-sapling/src/ui/alert/wallet-lists.ts
-packages/beacon-blockchain-tezos-sapling/src/ui/toast/toast-templates.ts
+packages/beacon-blockchain-mavryk/src/ui/alert/alert-templates.ts
+packages/beacon-blockchain-mavryk/src/ui/alert/wallet-lists.ts
+packages/beacon-blockchain-mavryk/src/ui/toast/toast-templates.ts
+packages/beacon-blockchain-mavryk-sapling/src/ui/alert/alert-templates.ts
+packages/beacon-blockchain-mavryk-sapling/src/ui/alert/wallet-lists.ts
+packages/beacon-blockchain-mavryk-sapling/src/ui/toast/toast-templates.ts
 packages/beacon-blockchain-substrate/src/ui/alert/alert-templates.ts
 packages/beacon-blockchain-substrate/src/ui/alert/wallet-lists.ts
 packages/beacon-blockchain-substrate/src/ui/toast/toast-templates.ts

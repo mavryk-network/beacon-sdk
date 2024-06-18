@@ -618,7 +618,7 @@ const openAlert = async (config: AlertConfig): Promise<string> => {
               ? wallet.deepLink
               : isAndroid(window)
               ? wallet.links[OSLink.IOS]
-              : 'tezos://',
+              : 'mavryk://',
             code
           )
 

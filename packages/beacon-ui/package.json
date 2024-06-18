@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-ui",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "This package contains the UI part (alerts and toasts) of the Beacon SDK.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
   "homepage": "https://walletbeacon.io",
@@ -34,10 +34,10 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-core": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
-    "@mavrykdynamics/beacon-types": "^4.2.1",
-    "@mavrykdynamics/beacon-utils": "^4.2.1",
+    "@mavrykdynamics/beacon-core": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.2",
+    "@mavrykdynamics/beacon-types": "^4.2.2",
+    "@mavrykdynamics/beacon-utils": "^4.2.2",
     "@walletconnect/utils": "2.11.2",
     "qrcode-svg": "^1.1.0",
     "solid-js": "^1.7.11"

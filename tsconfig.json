@@ -33,13 +33,13 @@
       "packages/beacon-blockchain-substrate/lib/beacon-blockchain-substrate",
       "packages/beacon-blockchain-substrate/lib"
     ],
-    "beacon-blockchain-tezos": [
-      "packages/beacon-blockchain-tezos/lib/beacon-blockchain-tezos",
-      "packages/beacon-blockchain-tezos/lib"
+    "beacon-blockchain-mavryk": [
+      "packages/beacon-blockchain-mavryk/lib/beacon-blockchain-mavryk",
+      "packages/beacon-blockchain-mavryk/lib"
     ],
-    "beacon-blockchain-tezos-sapling": [
-      "packages/beacon-blockchain-tezos-sapling/lib/beacon-blockchain-tezos-sapling",
-      "packages/beacon-blockchain-tezos-sapling/lib"
+    "beacon-blockchain-mavryk-sapling": [
+      "packages/beacon-blockchain-mavryk-sapling/lib/beacon-blockchain-mavryk-sapling",
+      "packages/beacon-blockchain-mavryk-sapling/lib"
     ],
     "beacon-transport-matrix": [
       "packages/beacon-transport-matrix/lib/beacon-transport-matrix",

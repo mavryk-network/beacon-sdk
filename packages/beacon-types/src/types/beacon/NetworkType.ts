@@ -4,5 +4,6 @@ export enum NetworkType {
   WEEKLYNET = 'weeklynet', // Testnet, resets every week
   DAILYNET = 'dailynet', // Testnet, resets every day
   ATLASNET = 'atlasnet',
+  BOREASNET = 'boreasnet',
   CUSTOM = 'custom'
 }

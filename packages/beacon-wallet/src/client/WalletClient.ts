@@ -168,7 +168,7 @@ export class WalletClient extends Client {
       .data
 
     const constructedString = [
-      'Tezos Signed Message: ',
+      'Mavryk Signed Message: ',
       challenge.id,
       challenge.timestamp,
       accountPublicKey,
@@ -464,6 +464,8 @@ export class WalletClient extends Client {
     if (peer) {
       await this.removePeer(peer as any)
     }
+
+    await transport.disconnect()
 
     return
   }

@@ -136,7 +136,7 @@
         // matrixNodes: ['beacon.tztip.me']
       })
 
-      const substrateBlockchain = new beaconSapling.TezosSaplingBlockchain()
+      const substrateBlockchain = new beaconSapling.MavrykSaplingBlockchain()
       client.addBlockchain(substrateBlockchain)
 
       // Display the active account in the UI
@@ -168,7 +168,7 @@
         client.requestOperation({
           operationDetails: [
             {
-              kind: beacon.TezosOperationType.DELEGATION,
+              kind: beacon.MavrykOperationType.DELEGATION,
               delegate: 'mv1Qvep3UVZdGTV6cMQ9MHGexLNQ6oaNZmhj'
             }
           ]
@@ -202,7 +202,7 @@
       const requestPermission = (callback) => {
         client
           .permissionRequest({
-            blockchainIdentifier: 'tezos-sapling',
+            blockchainIdentifier: 'mavryk-sapling',
             type: 'permission_request',
             blockchainData: {
               appMetadata: {
@@ -401,7 +401,7 @@
           .requestOperation({
             operationDetails: [
               {
-                kind: beacon.TezosOperationType.TRANSACTION,
+                kind: beacon.MavrykOperationType.TRANSACTION,
                 amount: '0',
                 destination: 'KT1RxKJyi48W3bZR8HErRiisXZQw19HwLGWj',
                 parameters: {

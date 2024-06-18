@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-wallet",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Use this package in your wallet to instanciate a WalletClient object and communicate to dApps.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
   "homepage": "https://walletbeacon.io",
@@ -35,8 +35,8 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-core": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-matrix": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1"
+    "@mavrykdynamics/beacon-core": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-matrix": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.2"
   }
 }
