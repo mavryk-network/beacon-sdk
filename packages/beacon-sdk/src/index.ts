@@ -1,5 +1,5 @@
 export * from '@mavrykdynamics/beacon-blockchain-substrate'
-export * from '@mavrykdynamics/beacon-blockchain-tezos'
+export * from '@mavrykdynamics/beacon-blockchain-mavryk'
 export * from '@mavrykdynamics/beacon-core'
 export * from '@mavrykdynamics/beacon-dapp'
 export * from '@mavrykdynamics/beacon-transport-matrix'

@@ -47,7 +47,7 @@ import {
 } from '@mavrykdynamics/beacon-types'
 import { generateGUID, getAddressFromPublicKey } from '@mavrykdynamics/beacon-utils'
 
-const TEZOS_PLACEHOLDER = 'tezos'
+const MAVRYK_PLACEHOLDER = 'mavryk'
 const logger = new Logger('WalletConnectCommunicationClient')
 
 export interface PermissionScopeParam {
@@ -56,9 +56,9 @@ export interface PermissionScopeParam {
   events?: PermissionScopeEvents[]
 }
 export enum PermissionScopeMethods {
-  GET_ACCOUNTS = 'tezos_getAccounts',
-  OPERATION_REQUEST = 'tezos_send',
-  SIGN = 'tezos_sign'
+  GET_ACCOUNTS = 'mavryk_getAccounts',
+  OPERATION_REQUEST = 'mavryk_send',
+  SIGN = 'mavryk_sign'
 }
 
 export enum PermissionScopeEvents {
@@ -162,16 +162,13 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
    * differ from a wallet state
    */
   private async refreshState() {
-    this.clearEvents()
-    this.signClient = undefined
+    await this.closeSignClient()
 
     const client = (await this.getSignClient())!
     const lastIndex = client.session.keys.length - 1
 
     if (lastIndex > -1) {
       this.session = client.session.get(client.session.keys[lastIndex])
-
-      this.subscribeToSessionEvents(client)
       this.updateStorageWallet(this.session)
       this.setDefaultAccountAndNetwork()
     } else {
@@ -188,25 +185,34 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     this.signClient?.core.pairing.events.removeAllListeners('pairing_expire')
   }
 
+  private abortErrorBuilder() {
+    if (!this.messageIds.length) {
+      return
+    }
+
+    const errorResponse: any = {
+      type: BeaconMessageType.Disconnect,
+      id: this.messageIds.pop(),
+      errorType: BeaconErrorType.ABORTED_ERROR
+    }
+    this.session && this.notifyListeners(this.getTopicFromSession(this.session), errorResponse)
+    this.messageIds = [] // reset
+  }
+
   private onStorageMessageHandler(type: string) {
     logger.debug('onStorageMessageHandler', type)
 
-    this.refreshState()
+    if (type === 'RESET') {
+      this.abortErrorBuilder()
+      this.clearEvents()
+      // no need to invoke `closeSignClinet` as the other tab already closed the connection
+      this.signClient = undefined
+      this.clearState()
 
-    if (type === 'CLEAR_ACTIVE_ACCOUNT') {
-      if (this.messageIds.length) {
-        const errorResponse: any = {
-          type: BeaconMessageType.Disconnect,
-          id: this.messageIds.pop(),
-          errorType: BeaconErrorType.ABORTED_ERROR
-        }
-        this.session && this.notifyListeners(this.getTopicFromSession(this.session), errorResponse)
-        this.messageIds = [] // reset
-      }
-      this.session = undefined
-      this.activeAccount = undefined
       return
     }
+
+    this.refreshState()
   }
 
   private onStorageErrorHandler(data: any) {
@@ -214,11 +220,30 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
   }
 
   async unsubscribeFromEncryptedMessages(): Promise<void> {
-    // implementation
+    this.activeListeners.clear()
+    this.channelOpeningListeners.clear()
   }
 
   async unsubscribeFromEncryptedMessage(_senderPublicKey: string): Promise<void> {
     // implementation
+  }
+
+  private async closeSignClient() {
+    if (!this.signClient) {
+      logger.error('No client active')
+      return
+    }
+
+    await this.signClient.core.relayer.transportClose()
+    this.signClient.core.events.removeAllListeners()
+    this.signClient.core.relayer.events.removeAllListeners()
+    this.signClient.core.heartbeat.stop()
+    this.signClient.core.relayer.provider.events.removeAllListeners()
+    this.signClient.core.relayer.subscriber.events.removeAllListeners()
+    this.signClient.core.relayer.provider.connection.events.removeAllListeners()
+    this.clearEvents()
+
+    this.signClient = undefined
   }
 
   private async ping() {
@@ -306,7 +331,8 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
   private async notifyListenersWithPermissionResponse(
     session: SessionTypes.Struct,
-    network: Network
+    network: Network,
+    sessionEventId?: string
   ) {
     let publicKey: string | undefined
     if (
@@ -320,7 +346,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
         session.sessionProperties
       )
     } else {
-      const accounts = this.getTezosNamespace(session.namespaces).accounts
+      const accounts = this.getMavrykNamespace(session.namespaces).accounts
       const addressOrPbk = accounts[0].split(':', 3)[2]
 
       if (addressOrPbk.startsWith('edpk')) {
@@ -332,7 +358,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
         const result = await this.fetchAccounts(
           session.topic,
-          `${TEZOS_PLACEHOLDER}:${network.type}`
+          `${MAVRYK_PLACEHOLDER}:${network.type}`
         )
 
         if (!result || result.length < 1) {
@@ -340,7 +366,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
         }
 
         if (result.some((account) => !account.pubkey)) {
-          throw new Error('Public Key in `tezos_getAccounts` is empty!')
+          throw new Error('Public Key in `mavryk_getAccounts` is empty!')
         }
 
         publicKey = result[0]?.pubkey
@@ -348,7 +374,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     }
 
     if (!publicKey) {
-      throw new Error('Public Key in `tezos_getAccounts` is empty!')
+      throw new Error('Public Key in `mavryk_getAccounts` is empty!')
     }
 
     const permissionResponse: PermissionResponseInput = {
@@ -361,7 +387,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
       publicKey,
       network,
       scopes: [PermissionScope.SIGN, PermissionScope.OPERATION_REQUEST],
-      id: this.messageIds.pop() ?? '',
+      id: sessionEventId ?? this.messageIds.pop() ?? '',
       walletType: 'implicit'
     }
 
@@ -413,7 +439,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     signClient
       .request<{ signature: string }>({
         topic: session.topic,
-        chainId: `${TEZOS_PLACEHOLDER}:${network}`,
+        chainId: `${MAVRYK_PLACEHOLDER}:${network}`,
         request: {
           method: PermissionScopeMethods.SIGN,
           params: {
@@ -479,7 +505,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
         hash?: string
       }>({
         topic: session.topic,
-        chainId: `${TEZOS_PLACEHOLDER}:${network}`,
+        chainId: `${MAVRYK_PLACEHOLDER}:${network}`,
         request: {
           method: PermissionScopeMethods.OPERATION_REQUEST,
           params: {
@@ -564,19 +590,10 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
       return
     }
 
-    // const sessions = signClient.session.getAll()
-    // if (sessions && sessions.length > 0) {
-    //   this.session = sessions[0]
-    //   this.setDefaultAccountAndNetwork()
-    //   this.updateStorageWallet(this.session)
-    //   return undefined
-    // }
-
     const lastIndex = signClient.session.keys.length - 1
 
     if (lastIndex > -1) {
       this.session = signClient.session.get(signClient.session.keys[lastIndex])
-
       this.updateStorageWallet(this.session)
       this.setDefaultAccountAndNetwork()
 
@@ -602,10 +619,10 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
     const connectParams = {
       requiredNamespaces: {
-        [TEZOS_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(permissionScopeParams)
+        [MAVRYK_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(permissionScopeParams)
       },
       optionalNamespaces: {
-        [TEZOS_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(optionalPermissionScopeParams)
+        [MAVRYK_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(optionalPermissionScopeParams)
       }
     }
 
@@ -707,7 +724,9 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
   public async close() {
     this.storage.backup()
+    this.abortErrorBuilder()
     await this.closePairings()
+    this.unsubscribeFromEncryptedMessages()
   }
 
   private subscribeToSessionEvents(signClient: Client): void {
@@ -731,10 +750,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
       this.session = session
 
-      this.updateActiveAccount(event.params.namespaces)
-      this.notifyListenersWithPermissionResponse(this.session, {
-        type: this.wcOptions.network
-      })
+      this.updateActiveAccount(event.params.namespaces, session)
     })
 
     signClient.on('session_delete', (event) => {
@@ -766,9 +782,12 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     this.notifyListeners(this.getTopicFromSession(session), acknowledgeResponse)
   }
 
-  private async updateActiveAccount(namespaces: SessionTypes.Namespaces) {
+  private async updateActiveAccount(
+    namespaces: SessionTypes.Namespaces,
+    session: SessionTypes.Struct
+  ) {
     try {
-      const accounts = this.getTezosNamespace(namespaces).accounts
+      const accounts = this.getMavrykNamespace(namespaces).accounts
       if (accounts.length) {
         const [_namespace, chainId, addressOrPbk] = accounts[0].split(':', 3)
         const session = this.getSession()
@@ -781,7 +800,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
           this.activeAccount = await getAddressFromPublicKey(publicKey)
         } else {
           this.activeAccount = addressOrPbk
-          const result = await this.fetchAccounts(session.topic, `${TEZOS_PLACEHOLDER}:${chainId}`)
+          const result = await this.fetchAccounts(session.topic, `${MAVRYK_PLACEHOLDER}:${chainId}`)
 
           publicKey = result?.find(({ address: _address }) => addressOrPbk === _address)?.pubkey
         }
@@ -798,6 +817,14 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
           scopes: [PermissionScope.SIGN, PermissionScope.OPERATION_REQUEST],
           walletType: 'implicit'
         })
+      } else {
+        this.notifyListenersWithPermissionResponse(
+          session,
+          {
+            type: this.wcOptions.network
+          },
+          'session_update'
+        )
       }
     } catch {}
   }
@@ -929,6 +956,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
         ))
     }
 
+    await this.closeSignClient()
     await this.storage.resetState()
     this.storage.notify('RESET')
   }
@@ -982,10 +1010,10 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
 
     const connectParams = {
       requiredNamespaces: {
-        [TEZOS_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(permissionScopeParams)
+        [MAVRYK_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(permissionScopeParams)
       },
       optionalNamespaces: {
-        [TEZOS_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(optionalPermissionScopeParams)
+        [MAVRYK_PLACEHOLDER]: this.permissionScopeParamsToNamespaces(optionalPermissionScopeParams)
       },
       pairingTopic
     }
@@ -1057,7 +1085,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     permissionScopeParams: PermissionScopeParam
   ): ProposalTypes.BaseRequiredNamespace {
     return {
-      chains: permissionScopeParams.networks.map((network) => `${TEZOS_PLACEHOLDER}:${network}`),
+      chains: permissionScopeParams.networks.map((network) => `${MAVRYK_PLACEHOLDER}:${network}`),
       methods: permissionScopeParams.methods,
       events: permissionScopeParams.events ?? []
     }
@@ -1067,19 +1095,19 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
     scope: PermissionScopeParam,
     receivedNamespaces: Record<string, SessionTypes.Namespace>
   ) {
-    if (receivedNamespaces[TEZOS_PLACEHOLDER]) {
-      this.validateMethods(scope.methods, receivedNamespaces[TEZOS_PLACEHOLDER].methods)
+    if (receivedNamespaces[MAVRYK_PLACEHOLDER]) {
+      this.validateMethods(scope.methods, receivedNamespaces[MAVRYK_PLACEHOLDER].methods)
       if (scope.events) {
-        this.validateEvents(scope.events, receivedNamespaces['tezos'].events)
+        this.validateEvents(scope.events, receivedNamespaces['mavryk'].events)
       }
-      this.validateAccounts(scope.networks, receivedNamespaces[TEZOS_PLACEHOLDER].accounts)
+      this.validateAccounts(scope.networks, receivedNamespaces[MAVRYK_PLACEHOLDER].accounts)
     } else {
       this.clearState()
       throw new InvalidReceivedSessionNamespace(
         'All namespaces must be approved',
         getSdkError('USER_REJECTED').code,
         'incomplete',
-        'tezos'
+        'mavryk'
       )
     }
   }
@@ -1139,7 +1167,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
       if (accountId.length !== 3) {
         invalidChains.push(chain)
       }
-      if (accountId[0] !== TEZOS_PLACEHOLDER) {
+      if (accountId[0] !== MAVRYK_PLACEHOLDER) {
         invalidChainsNamespace.push(chain)
       }
       const network = accountId[1]
@@ -1214,7 +1242,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
   }
 
   private validateNetworkAndAccount(network: string, account: string) {
-    if (!this.getTezosNamespace().accounts.includes(`${TEZOS_PLACEHOLDER}:${network}:${account}`)) {
+    if (!this.getMavrykNamespace().accounts.includes(`${MAVRYK_PLACEHOLDER}:${network}:${account}`)) {
       throw new InvalidNetworkOrAccount(network, account)
     }
   }
@@ -1246,7 +1274,7 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
    * @error NotConnected if no active session
    */
   getAccounts() {
-    return this.getTezosNamespace().accounts.map((account) => account.split(':')[2])
+    return this.getMavrykNamespace().accounts.map((account) => account.split(':')[2])
   }
 
   /**
@@ -1256,43 +1284,43 @@ export class WalletConnectCommunicationClient extends CommunicationClient {
   getNetworks() {
     return this.getPermittedNetwork()
   }
-  private getTezosNamespace(namespaces: SessionTypes.Namespaces = this.getSession().namespaces): {
+  private getMavrykNamespace(namespaces: SessionTypes.Namespaces = this.getSession().namespaces): {
     accounts: string[]
     methods: string[]
     events: string[]
   } {
-    if (TEZOS_PLACEHOLDER in namespaces) {
-      return namespaces[TEZOS_PLACEHOLDER]
+    if (MAVRYK_PLACEHOLDER in namespaces) {
+      return namespaces[MAVRYK_PLACEHOLDER]
     } else {
-      throw new InvalidSession('Tezos not found in namespaces')
+      throw new InvalidSession('Mavryk not found in namespaces')
     }
   }
   private getPermittedMethods() {
-    return this.getTezosRequiredNamespace().methods
+    return this.getMavrykRequiredNamespace().methods
   }
 
   private getPermittedNetwork() {
-    return this.getTezosRequiredNamespace().chains.map((chain) => chain.split(':')[1])
+    return this.getMavrykRequiredNamespace().chains.map((chain) => chain.split(':')[1])
   }
 
-  private getTezosRequiredNamespace(): {
+  private getMavrykRequiredNamespace(): {
     chains: string[]
     methods: string[]
     events: string[]
   } {
     return {
-      chains: [`${TEZOS_PLACEHOLDER}:${this.wcOptions.network}`],
+      chains: [`${MAVRYK_PLACEHOLDER}:${this.wcOptions.network}`],
       events: [],
-      methods: ['tezos_getAccounts', 'tezos_send', 'tezos_sign']
+      methods: ['mavryk_getAccounts', 'mavryk_send', 'mavryk_sign']
     }
-    // if (TEZOS_PLACEHOLDER in this.getSession().requiredNamespaces) {
-    //   return this.getSession().requiredNamespaces[TEZOS_PLACEHOLDER] as {
+    // if (MAVRYK_PLACEHOLDER in this.getSession().requiredNamespaces) {
+    //   return this.getSession().requiredNamespaces[MAVRYK_PLACEHOLDER] as {
     //     chains: string[]
     //     methods: string[]
     //     events: string[]
     //   }
     // } else {
-    //   throw new InvalidSession('Tezos not found in requiredNamespaces')
+    //   throw new InvalidSession('Mavryk not found in requiredNamespaces')
     // }
   }
 

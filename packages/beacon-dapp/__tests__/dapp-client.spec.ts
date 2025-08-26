@@ -12,13 +12,13 @@ import {
   NetworkType,
   OperationResponse,
   Origin,
-  PartialTezosOperation,
+  PartialMavrykOperation,
   SigningType,
   PermissionResponse,
   PermissionScope,
   SignPayloadResponse,
   StorageKey,
-  TezosOperationType,
+  MavrykOperationType,
   TransportStatus,
   ExtendedP2PPairingRequest,
   ProofOfEventChallengeResponse
@@ -827,9 +827,9 @@ describe(`DAppClient`, () => {
 
     const notifySuccessStub = sinon.stub(dAppClient, <any>'notifySuccess').resolves()
 
-    const operationDetails: PartialTezosOperation[] = [
+    const operationDetails: PartialMavrykOperation[] = [
       {
-        kind: TezosOperationType.TRANSACTION,
+        kind: MavrykOperationType.TRANSACTION,
         amount: '1',
         destination: 'mv1RUZ6mQpNM3dSC95QvkhJHuuQywGJfQRmB'
       }

@@ -1,6 +1,6 @@
 {
   "name": "@mavrykdynamics/beacon-dapp",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Use this package on your dApp to instanciate a DAppClient object and communicate to wallets.",
   "author": "Andreas Gassmann <a.gassmann@papers.ch>",
   "homepage": "https://walletbeacon.io",
@@ -35,10 +35,10 @@
     "url": "https://github.com/mavryk-network/beacon-sdk/issues"
   },
   "dependencies": {
-    "@mavrykdynamics/beacon-core": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-matrix": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.1",
-    "@mavrykdynamics/beacon-transport-walletconnect": "^4.2.1",
-    "@mavrykdynamics/beacon-ui": "^4.2.1"
+    "@mavrykdynamics/beacon-core": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-matrix": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-postmessage": "^4.2.2",
+    "@mavrykdynamics/beacon-transport-walletconnect": "^4.2.2",
+    "@mavrykdynamics/beacon-ui": "^4.2.2"
   }
 }

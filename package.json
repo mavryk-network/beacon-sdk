@@ -13,7 +13,7 @@
     "beacon",
     "crypto",
     "blockchain",
-    "tezos",
+    "mavryk",
     "decentralized",
     "dapp"
   ],
@@ -61,8 +61,8 @@
   "author": "Papers AG <contact@papers.ch> (https://papers.ch)",
   "dependencies": {
     "@mavrykdynamics/beacon-blockchain-substrate": "file:packages/beacon-blockchain-substrate",
-    "@mavrykdynamics/beacon-blockchain-tezos": "file:packages/beacon-blockchain-tezos",
-    "@mavrykdynamics/beacon-blockchain-tezos-sapling": "file:packages/beacon-blockchain-tezos-sapling",
+    "@mavrykdynamics/beacon-blockchain-mavryk": "file:packages/beacon-blockchain-mavryk",
+    "@mavrykdynamics/beacon-blockchain-mavryk-sapling": "file:packages/beacon-blockchain-mavryk-sapling",
     "@mavrykdynamics/beacon-core": "file:packages/beacon-core",
     "@mavrykdynamics/beacon-dapp": "file:packages/beacon-dapp",
     "@mavrykdynamics/beacon-transport-matrix": "file:packages/beacon-transport-matrix",
